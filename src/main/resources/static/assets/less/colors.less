@@ -12,7 +12,7 @@
 @base: #66cdcc; 
 @baseDark: #336799; 
 // -------------- End Freeze ---------------
-
+@img_bg_header:"../img/bg-header.jpg";
 
 // Eco Theme Coloring
 // @img_reviews : "../img/eco/bk-eco.jpg"; 
@@ -37,7 +37,9 @@
 
 header{
 
-    .bk-gradient(-45deg, @base, @baseDark);
+    //.bk-gradient(-45deg, @base, @baseDark);
+    background: url(@img_bg_header) no-repeat;
+    background-size:100% auto;
 
     .navbar-default {
         ul.navbar-nav {
@@ -77,7 +79,7 @@ header{
         		}
         	}
         	.navbar-brand{
-        		background: @baseDark;
+        		//background: @baseDark;
         	}
         }
     }
@@ -395,8 +397,11 @@ form{
         .navbar-default{
             .navbar-toggle{
                 &:hover,&:focus{
-                    background: none;
+                    background: @darkGrey;
                 }
+                color: #000000;
+                background-color: @lightGrey;
+                border: 1px solid rgba(0, 0, 0, 0);
             }
             ul.navbar-nav{
                 li{
@@ -420,7 +425,7 @@ form{
                 
             }
             &.scrolled{
-                background: @baseDark;
+                //background: @baseDark;
                 .navbar-toggle{
                     
                 }
