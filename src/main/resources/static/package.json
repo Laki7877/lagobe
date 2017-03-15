@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0",
     "grunt": "~0.4.0",
     "grunt-browser-sync": "~1.5.3",
     "grunt-bumpup": "~0.6.2",

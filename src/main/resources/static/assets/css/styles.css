@@ -212,6 +212,26 @@ section#about .about-item i.fa {
   transition: all 0.25s ease-in-out;
   width: 104px;
 }
+section#howToSell .how-to-sell p {
+  font-size: 16pt;
+}
+section#howToSell .how-to-sell ul {
+  margin: 0px;
+  padding: 0px 0px 0px 28px;
+}
+section#howToSell .how-to-sell ul li {
+  font-size: 24pt;
+  line-height: 50px;
+}
+section#store .store-item {
+  padding: 30px 0;
+}
+section#store .store-item .number,
+section#store .store-item .unit {
+  text-align: center;
+  font-size: 32pt;
+  font-weight: bold;
+}
 section#features .media i.fa {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -448,8 +468,19 @@ section#support .media .media-heading a {
 }
 /* footer section */
 footer {
-  padding: 80px 0;
+  padding: 40px 0;
   text-align: center;
+}
+footer ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+footer ul li {
+  color: #ffffff;
+}
+footer ul li a {
+  color: #ffffff;
 }
 footer a > img {
   width: 100px;
@@ -493,7 +524,8 @@ footer .rights a:hover {
 }
 section {
   position: relative;
-  padding-bottom: 90px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 /* Common style for pseudo-elements */
 section::before,
@@ -814,42 +846,54 @@ header .navbar-default.scrolled ul.navbar-nav li a:hover:after {
   background: #336799;
 }
 section .section-heading .divider:after {
-  background: #66cdcc;
+  background: #000080;
 }
 section#about .about-item i.fa {
-  border: 2px solid #66cdcc;
-  color: #66cdcc;
+  border: 2px solid #000080;
+  color: #000080;
 }
 section#about .about-item:hover i.fa {
   color: #ffffff;
-  background: #66cdcc;
+  background: #000080;
 }
 section#about .about-item:hover h3 {
-  color: #66cdcc;
+  color: #000080;
+}
+section#howToSell {
+  background: #000080;
+}
+section#howToSell .how-to-sell {
+  color: #ffffff;
+}
+section#howToSell .how-to-sell h1 {
+  color: #ffffff;
+}
+section#store .store-item .number {
+  color: #000080;
 }
 section#features {
   background: #f6f6f6;
 }
 section#features header h1:after {
-  background: #66cdcc;
+  background: #000080;
 }
 section#features .media i.fa {
-  border: 2px solid #66cdcc;
-  color: #66cdcc;
+  border: 2px solid #000080;
+  color: #000080;
 }
 section#features .media:hover i.fa {
   color: #ffffff;
-  background: #66cdcc;
+  background: #000080;
 }
 section#features .media:hover h3 {
-  color: #66cdcc;
+  color: #000080;
 }
 section#features .media.active i.fa {
   color: #ffffff;
-  background: #66cdcc;
+  background: #000080;
 }
 section#features .media.active .media-heading {
-  color: #66cdcc;
+  color: #000080;
 }
 section#reviews {
   background: url("../img/freeze/bk-freeze.jpg");
@@ -867,10 +911,10 @@ section#reviews .review-filtering .review .review-comment {
   background: #ffffff;
 }
 section#reviews .review-filtering .review .review-comment h3 {
-  color: #66cdcc;
+  color: #000080;
 }
 section#reviews .review-filtering .review .review-comment p span i {
-  color: #66cdcc;
+  color: #000080;
 }
 section#reviews .review-filtering .review .review-comment:after {
   border-right-color: #ffffff;
@@ -880,10 +924,10 @@ section#reviews .review-filtering .slick-dots li button {
   border: 2px solid #ffffff;
 }
 section#reviews .review-filtering .slick-dots li.slick-active button {
-  background: #66cdcc;
+  background: #000080;
 }
 section#screens header h1:after {
-  background: #66cdcc;
+  background: #000080;
 }
 section#screens .slider div img {
   border: 2px solid #e5e5e5;
@@ -895,7 +939,7 @@ section#screens .slider .slick-dots li button {
   background: #999999;
 }
 section#screens .slider .slick-dots li.slick-active button {
-  background: #66cdcc;
+  background: #000080;
 }
 section#screens .filter a {
   border: 2px solid #cccccc;
@@ -903,20 +947,20 @@ section#screens .filter a {
 }
 section#screens .filter a:hover {
   color: #ffffff;
-  background: #66cdcc;
-  border-color: #66cdcc;
+  background: #000080;
+  border-color: #000080;
 }
 section#screens .filter a.active {
   color: #ffffff;
-  background: #66cdcc;
-  border-color: #66cdcc;
+  background: #000080;
+  border-color: #000080;
 }
 /* demo video Section */
 section#demo {
   background: #f6f6f6;
 }
 section#demo header h1:after {
-  background: #66cdcc;
+  background: #000080;
 }
 /* Get app Section */
 section#getApp {
@@ -943,43 +987,43 @@ section#getApp .platforms .media:hover {
 }
 section#getApp .platforms .media:hover a i,
 section#getApp .platforms .media:hover a div.media-body {
-  color: #66cdcc;
+  color: #000080;
 }
 /* support section */
 section#support header h1:after {
-  background: #66cdcc;
+  background: #000080;
 }
 section#support .media i.fa {
-  border: 2px solid #66cdcc;
-  color: #66cdcc;
+  border: 2px solid #000080;
+  color: #000080;
 }
 section#support .media a {
-  color: #66cdcc;
+  color: #000080;
 }
 section#support .media:hover i.fa {
   color: #ffffff;
-  background: #66cdcc;
+  background: #000080;
 }
 section#support .media:hover h3 {
-  color: #66cdcc;
+  color: #000080;
 }
 /* footer section */
 footer {
-  background: #66cdcc;
+  background: #000080;
   /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #66cdcc 0%, #336799 100%);
+  background: -moz-linear-gradient(-45deg, #000080 0%, #336799 100%);
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #66cdcc), color-stop(100%, #336799));
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #000080), color-stop(100%, #336799));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg, #66cdcc 0%, #336799 100%);
+  background: -webkit-linear-gradient(-45deg, #000080 0%, #336799 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg, #66cdcc 0%, #336799 100%);
+  background: -o-linear-gradient(-45deg, #000080 0%, #336799 100%);
   /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg, #66cdcc 0%, #336799 100%);
+  background: -ms-linear-gradient(-45deg, #000080 0%, #336799 100%);
   /* IE10+ */
-  background: linear-gradient(-45deg, #66cdcc 0%, #336799 100%);
+  background: linear-gradient(-45deg, #000080 0%, #336799 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66cdcc, endColorstr=#336799, GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#000080, endColorstr=#336799, GradientType=1);
   /* IE6-9 fallback on horizontal gradient */
 }
 footer .social a {
@@ -992,7 +1036,7 @@ footer .social a:hover {
   background: #ffffff;
 }
 footer .social a:hover i {
-  color: #66cdcc;
+  color: #000080;
 }
 footer .rights {
   color: #ffffff;
@@ -1007,13 +1051,13 @@ footer .rights a {
   border: 1px solid rgba(0, 0, 0, 0);
 }
 .btn.btn-primary {
-  color: #66cdcc;
-  border-color: #66cdcc;
+  color: #000080;
+  border-color: #000080;
 }
 .btn.btn-primary:hover {
   color: #ffffff;
-  background: #66cdcc;
-  border-color: #66cdcc;
+  background: #000080;
+  border-color: #000080;
 }
 .btn.btn-primary.inverse {
   color: #ffffff;
@@ -1021,8 +1065,8 @@ footer .rights a {
 }
 .btn.btn-primary.inverse:hover {
   color: #ffffff;
-  background: #66cdcc;
-  border-color: #66cdcc;
+  background: #000080;
+  border-color: #000080;
 }
 .btn.btn-default {
   background: #ffffff;
@@ -1047,7 +1091,7 @@ footer .rights a {
   color: #336799;
 }
 form .form-control:focus {
-  border-color: #66cdcc;
+  border-color: #000080;
   color: #999999;
 }
 @media screen and (max-width: 640px) {
@@ -1071,7 +1115,7 @@ form .form-control:focus {
     display: none;
   }
   header .navbar-default ul.navbar-nav li a:hover {
-    color: #66cdcc;
+    color: #000080;
   }
   header .navbar-default .navbar-collapse {
     background: #336799;
@@ -1080,7 +1124,7 @@ form .form-control:focus {
     color: #ffffff;
   }
   header .navbar-default.scrolled ul.navbar-nav li a:hover {
-    color: #66cdcc;
+    color: #000080;
   }
 }
 .pre-loader {

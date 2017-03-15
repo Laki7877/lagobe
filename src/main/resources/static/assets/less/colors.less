@@ -9,7 +9,7 @@
 // Freeze Theme Coloring
 @img_reviews : "../img/freeze/bk-freeze.jpg"; 
 @img_getapp : "../img/freeze/bk-freeze-ga.jpg"; 
-@base: #66cdcc; 
+@base: #000080;
 @baseDark: #336799; 
 // -------------- End Freeze ---------------
 @img_bg_header:"../img/bg-header.jpg";
@@ -115,6 +115,24 @@ section#about {
                 color: @base;
             }
         }
+    }
+}
+section#howToSell {
+    background: @base;
+    .how-to-sell{
+        color: @white;
+
+        h1 {
+            color: @white;
+        }
+    }
+}
+section#store {
+    .store-item {
+        .number {
+            color: @base;
+        }
+        .unit {}
     }
 }
 section#features {
@@ -322,6 +340,33 @@ section#screens {
 }
 /* footer section */
  footer {
+     background-color: slategray;
+
+     h1{
+         color: @base;
+     }
+
+     h3{
+         color: @white;
+     }
+
+     ul {
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+
+        li {
+            a {
+                colo
+            }
+
+//            font-size: 24pt;
+//            line-height: 50px;
+
+            color: @white;
+        }
+    }
+
     .bk-gradient(-45deg, @base, @baseDark);
     .social {
         a {

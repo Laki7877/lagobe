@@ -150,6 +150,33 @@ section#about {
         }
     }
 }
+section#howToSell {
+    .how-to-sell {
+        p {
+            font-size: 16pt;
+        }
+
+        ul {
+            margin: 0px;
+            padding: 0px 0px 0px 28px;
+            li {
+                font-size: 24pt;
+                line-height: 50px;
+            }
+        }
+    }
+}
+section#store {
+    .store-item {
+        padding: 30px 0;
+
+        .number, .unit {
+            text-align: center;
+            font-size: 32pt;
+            font-weight: bold;
+        }
+    }
+}
 section#features {
     .media {
         i.fa {
@@ -347,8 +374,26 @@ section#screens {
 }
 /* footer section */
  footer {
-    padding: 80px 0;
+    padding: 40px 0;
     text-align: center;
+
+    ul {
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+
+        li {
+            a {
+                color: @white;
+            }
+
+//            font-size: 24pt;
+//            line-height: 50px;
+
+            color: @white;
+        }
+    }
+
     a>img {
         width: 100px;
     }
@@ -380,7 +425,8 @@ section#screens {
 }
 section {
     position: relative;
-    padding-bottom: 90px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 /* Common style for pseudo-elements */
  section::before, section::after {
