@@ -743,22 +743,8 @@ form textarea.form-control {
   }
 }
 header {
-  background: #66cdcc;
-  /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #66cdcc 0%, #336799 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #66cdcc), color-stop(100%, #336799));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg, #66cdcc 0%, #336799 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg, #66cdcc 0%, #336799 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg, #66cdcc 0%, #336799 100%);
-  /* IE10+ */
-  background: linear-gradient(-45deg, #66cdcc 0%, #336799 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66cdcc, endColorstr=#336799, GradientType=1);
-  /* IE6-9 fallback on horizontal gradient */
+  background: url("../img/bg-header.jpg") no-repeat;
+  background-size: 100% auto;
 }
 header .navbar-default ul.navbar-nav li a {
   color: #ffffff;
@@ -825,9 +811,6 @@ header .navbar-default.scrolled ul.navbar-nav li a:hover {
   color: #336799;
 }
 header .navbar-default.scrolled ul.navbar-nav li a:hover:after {
-  background: #336799;
-}
-header .navbar-default.scrolled .navbar-brand {
   background: #336799;
 }
 section .section-heading .divider:after {
@@ -1068,9 +1051,14 @@ form .form-control:focus {
   color: #999999;
 }
 @media screen and (max-width: 640px) {
+  header .navbar-default .navbar-toggle {
+    color: #000000;
+    background-color: #999999;
+    border: 1px solid rgba(0, 0, 0, 0);
+  }
   header .navbar-default .navbar-toggle:hover,
   header .navbar-default .navbar-toggle:focus {
-    background: none;
+    background: #666666;
   }
   header .navbar-default ul.navbar-nav li a {
     color: #ffffff;
@@ -1086,9 +1074,6 @@ form .form-control:focus {
     color: #66cdcc;
   }
   header .navbar-default .navbar-collapse {
-    background: #336799;
-  }
-  header .navbar-default.scrolled {
     background: #336799;
   }
   header .navbar-default.scrolled ul.navbar-nav li a {
