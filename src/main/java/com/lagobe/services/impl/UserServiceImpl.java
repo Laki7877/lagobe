@@ -9,6 +9,7 @@ import com.lagobe.daos.UserDao;
 import com.lagobe.exceptions.ResponseException;
 import com.lagobe.models.User;
 import com.lagobe.services.UserService;
+import com.lagobe.utils.EncryptionUtil;
 import com.mysql.jdbc.StringUtils;
 
 
@@ -18,6 +19,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private EncryptionUtil encryptionUtil;
 
 	@Override
 	public User addUser(User user) throws Exception {
@@ -38,6 +42,7 @@ public class UserServiceImpl implements UserService {
 			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.empty.password");
 		}
 		
+		user.setPassword(encryptionUtil.hashPassword(user.getPassword()));
 		user = userDao.save(user);
 		return user;
 	}
