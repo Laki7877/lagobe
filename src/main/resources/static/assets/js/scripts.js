@@ -31,12 +31,19 @@ var appMaster = {
     reviewsCarousel: function() {
         // Reviews Carousel
         $('.review-filtering').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: true,
-            arrows: false,
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            dots: false,
+            arrows: true,
             autoplay: true,
-            autoplaySpeed: 5000
+            autoplaySpeed: 5000,
+            responsive: [{
+                breakpoint: 824,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }]
         });
     },
 
@@ -147,6 +154,9 @@ var appMaster = {
     placeHold: function(){
         // run Placeholdem on all elements with placeholders
         Placeholdem(document.querySelectorAll('[placeholder]'));
+    },
+    animateNumber: function(){
+        $('.store-item .number').animateNumber({ number: 500 });
     }
 
 }; // AppMaster
@@ -167,5 +177,7 @@ $(document).ready(function() {
     appMaster.scrollMenu();
 
     appMaster.placeHold();
+
+    appMaster.animateNumber();
 
 });

@@ -53,49 +53,19 @@ header .navbar-default {
   transition: all 0.25s ease-in-out;
 }
 header .navbar-default ul.navbar-nav {
-  padding-top: 55px;
+  padding-top: 15px;
 }
 header .navbar-default ul.navbar-nav li a {
   text-transform: capitalize;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 24pt;
   padding: 7px 20px;
+  line-height: 40px;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
-}
-header .navbar-default ul.navbar-nav li a:after {
-  content: '';
-  width: 32px;
-  background: none;
-  height: 4px;
-  position: absolute;
-  bottom: 2px;
-  z-index: 99999;
-  left: 20px;
-  -webkit-border-radius: 5em;
-  -moz-border-radius: 5em;
-  -ms-border-radius: 5em;
-  -o-border-radius: 5em;
-  border-radius: 5em;
-  color: #ffffff;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-header .navbar-default ul.navbar-nav li a:hover {
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-header .navbar-default ul.navbar-nav li a:hover:after {
-  background: #ffffff;
 }
 header .navbar-default ul.navbar-nav li a.getApp {
   -webkit-border-radius: 5em;
@@ -111,6 +81,9 @@ header .navbar-default ul.navbar-nav li a.getApp {
 }
 header .navbar-default ul.navbar-nav li a.getApp:after {
   display: none;
+}
+header .navbar-default ul.navbar-nav li a.sell-with-us {
+  font-size: 20pt;
 }
 header .navbar-default ul.navbar-nav li a:focus {
   color: #ffffff;
@@ -140,6 +113,13 @@ header .navbar-default.scrolled .navbar-brand img {
 }
 header .navbar-default.scrolled ul.navbar-nav {
   padding-top: 15px;
+}
+header .navbar-default.scrolled ul.navbar-nav li a {
+  line-height: 24px;
+  font-size: 16pt;
+}
+header .navbar-default.scrolled ul.navbar-nav li a.sell-with-us {
+  font-size: 12pt;
 }
 .scrollpoint {
   opacity: 0;
@@ -193,35 +173,26 @@ section#about {
   position: relative;
 }
 section#about .about-item {
+  padding: 10px 0;
   text-align: center;
   font-size: 17px;
   line-height: 25px;
   color: #999999;
-}
-section#about .about-item i.fa {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  padding: 35px;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-  width: 104px;
 }
 section#howToSell .how-to-sell p {
   font-size: 16pt;
 }
 section#howToSell .how-to-sell ul {
   margin: 0px;
-  padding: 0px 0px 0px 28px;
+  padding: 0px;
+  list-style-type: none;
 }
 section#howToSell .how-to-sell ul li {
   font-size: 24pt;
   line-height: 50px;
+}
+section#howToSell .how-to-sell ul li i.fa {
+  padding-right: 6px;
 }
 section#store .store-item {
   padding: 30px 0;
@@ -263,16 +234,11 @@ section#features .media.feature:first-child {
 section#features img {
   margin: 0 auto 20px;
 }
-section#reviews {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 section#reviews .review-filtering {
-  margin: 20px 0 100px 0;
+  margin: 20px 0 20px 0;
 }
 section#reviews .review-filtering .review .review-person {
+  position: relative;
   width: 100%;
 }
 section#reviews .review-filtering .review .review-person img {
@@ -282,16 +248,28 @@ section#reviews .review-filtering .review .review-person img {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
-  margin: 10px auto;
+  margin: 10px 15px;
+}
+section#reviews .review-filtering .review .review-person .review-name {
+  position: absolute;
+  top: 30px;
+  left: 150px;
+  font-size: 16pt;
+}
+section#reviews .review-filtering .review .review-person .review-position {
+  position: absolute;
+  top: 60px;
+  left: 150px;
+  font-size: 16pt;
 }
 section#reviews .review-filtering .review .review-comment {
-  width: 100%;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   border-radius: 10px;
   padding: 5px 40px 20px;
+  margin: 0px 15px 30px 15px;
   position: relative;
 }
 section#reviews .review-filtering .review .review-comment h3 {
@@ -305,21 +283,14 @@ section#reviews .review-filtering .review .review-comment p span {
   margin-left: 10px;
 }
 section#reviews .review-filtering .review .review-comment:after {
-  right: 100%;
-  top: 50%;
-  border: solid transparent;
+  top: 100%;
+  left: 35px;
+  border: 20px solid transparent;
   content: " ";
   height: 0;
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-color: rgba(255, 255, 255, 0);
-  border-width: 15px;
-  margin-top: -10px;
-}
-section#reviews .review-filtering .review .review-person,
-section#reviews .review-filtering .review .review-comment {
-  float: left;
 }
 section#reviews .review-filtering .slick-dots {
   bottom: -80px;
@@ -333,6 +304,12 @@ section#reviews .review-filtering .slick-dots li button {
 }
 section#reviews .review-filtering .slick-dots li button:before {
   display: none;
+}
+section#reviews .review-filtering .slick-prev {
+  left: -35px;
+}
+section#reviews .review-filtering .slick-next {
+  right: -22px;
 }
 section#screens .slider {
   margin: 50px 0;
@@ -468,59 +445,37 @@ section#support .media .media-heading a {
 }
 /* footer section */
 footer {
-  padding: 40px 0;
-  text-align: center;
+  padding: 30px 0;
 }
-footer ul {
-  margin: 0px;
+footer .footer-item {
+  margin: 10px 0;
+}
+footer .footer-item h3 {
+  margin-top: 10px;
+  line-height: 28px;
+}
+footer .footer-item h4 {
+  line-height: 28px;
+}
+footer .footer-item p {
+  font-size: 12pt;
+  margin-bottom: 6px;
+}
+footer .footer-item ul {
+  margin: 0px 0px 0px 3px;
   padding: 0px;
   list-style-type: none;
 }
-footer ul li {
-  color: #ffffff;
+footer .footer-item ul li a {
+  font-size: 12pt;
+  line-height: 24px;
 }
-footer ul li a {
-  color: #ffffff;
-}
-footer a > img {
-  width: 100px;
-}
-footer .social {
-  display: block;
-  margin-top: 30px;
-}
-footer .social a {
-  margin: 0 8px;
-  padding: 15px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
+footer .footer-item .contactus-field {
   display: inline-block;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
+  width: 54px;
 }
-footer .social a i {
-  width: 1em;
-}
-footer .rights {
-  margin-top: 30px;
-}
-footer .rights a {
-  text-decoration: underline;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-  font-weight: bold;
-}
-footer .rights a:hover {
-  text-decoration: none;
+footer .footer-item .qr-code {
+  margin-top: 20px;
 }
 section {
   position: relative;
@@ -779,7 +734,7 @@ header {
   background-size: 100% auto;
 }
 header .navbar-default ul.navbar-nav li a {
-  color: #ffffff;
+  color: #000080;
   background: none;
 }
 header .navbar-default ul.navbar-nav li a.getApp {
@@ -833,30 +788,30 @@ header .navbar-default ul.navbar-nav li a:hover {
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
+header .navbar-default ul.navbar-nav li a.sell-with-us {
+  color: #ffffff;
+  background-color: #000080;
+}
+header .navbar-default ul.navbar-nav li a.sell-with-us:hover {
+  color: #000080;
+  background-color: #ffffff;
+}
 header .navbar-default.scrolled {
-  border-bottom: 3px solid #336799;
+  border-bottom: 3px solid #000080;
 }
 header .navbar-default.scrolled ul.navbar-nav li a {
-  color: #336799;
+  color: #000080;
 }
 header .navbar-default.scrolled ul.navbar-nav li a:hover {
-  color: #336799;
+  color: #000080;
 }
-header .navbar-default.scrolled ul.navbar-nav li a:hover:after {
-  background: #336799;
+header .navbar-default.scrolled ul.navbar-nav li a.sell-with-us {
+  color: #ffffff;
 }
 section .section-heading .divider:after {
   background: #000080;
 }
 section#about .about-item i.fa {
-  border: 2px solid #000080;
-  color: #000080;
-}
-section#about .about-item:hover i.fa {
-  color: #ffffff;
-  background: #000080;
-}
-section#about .about-item:hover h3 {
   color: #000080;
 }
 section#howToSell {
@@ -896,7 +851,7 @@ section#features .media.active .media-heading {
   color: #000080;
 }
 section#reviews {
-  background: url("../img/freeze/bk-freeze.jpg");
+  background-color: #000080;
 }
 section#reviews header {
   color: #ffffff;
@@ -906,6 +861,10 @@ section#reviews header h1:after {
 }
 section#reviews .review-filtering .review .review-person img {
   border: 3px solid #ffffff;
+}
+section#reviews .review-filtering .review .review-person .review-name,
+section#reviews .review-filtering .review .review-person .review-position {
+  color: #ffffff;
 }
 section#reviews .review-filtering .review .review-comment {
   background: #ffffff;
@@ -917,7 +876,7 @@ section#reviews .review-filtering .review .review-comment p span i {
   color: #000080;
 }
 section#reviews .review-filtering .review .review-comment:after {
-  border-right-color: #ffffff;
+  border-top-color: #ffffff;
 }
 section#reviews .review-filtering .slick-dots li button {
   background: #ffffff;
@@ -1009,41 +968,21 @@ section#support .media:hover h3 {
 }
 /* footer section */
 footer {
-  background: #000080;
-  /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #000080 0%, #336799 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #000080), color-stop(100%, #336799));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg, #000080 0%, #336799 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg, #000080 0%, #336799 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg, #000080 0%, #336799 100%);
-  /* IE10+ */
-  background: linear-gradient(-45deg, #000080 0%, #336799 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#000080, endColorstr=#336799, GradientType=1);
-  /* IE6-9 fallback on horizontal gradient */
+  background-color: dimgray;
 }
-footer .social a {
-  border: 2px solid #ffffff;
-}
-footer .social a i {
-  color: #ffffff;
-}
-footer .social a:hover {
-  background: #ffffff;
-}
-footer .social a:hover i {
+footer .footer-item h3 {
   color: #000080;
 }
-footer .rights {
+footer .footer-item h4,
+footer .footer-item p {
   color: #ffffff;
 }
-footer .rights a {
+footer .footer-item ul li a {
   color: #ffffff;
-  font-weight: 300;
+}
+footer .footer-item ul li a:focus,
+footer .footer-item ul li a:hover {
+  color: #000080;
   text-decoration: none;
 }
 .navbar-toggle {

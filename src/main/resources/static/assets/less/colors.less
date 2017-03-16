@@ -45,7 +45,7 @@ header{
         ul.navbar-nav {
             li {
                 a {
-                    color: @white;
+                    color: @base;
                     background: none;
                     &.getApp {
                         color: lighten(@baseDark, 7%);
@@ -60,21 +60,33 @@ header{
                         color:@white;
                         .transitionAll;
                     }
+                    &.sell-with-us {
+                        color: @white;
+                        background-color: @base;
+
+                        &:hover {
+                            color: @base;
+                            background-color: @white;
+                        }
+                    }
                 }
             }
         }
         &.scrolled{
-            border-bottom: 3px solid @baseDark;
+            border-bottom: 3px solid @base;
         	ul.navbar-nav{
         		li{
         			a{
-        				color:@baseDark;
+        				color: @base;
         				&:hover{
-                            color:@baseDark;
-        					&:after{
-        						background: @baseDark;
-        					}
+                            color: @base;
+//        					&:after{
+//        						background: @baseDark;
+//        					}
         				}
+                        &.sell-with-us {
+                            color:@white;
+                        }
         			}
         		}
         	}
@@ -103,18 +115,17 @@ section{
 section#about {
     .about-item {
         i.fa {
-            border: 2px solid @base;
             color: @base;
         }
-        &:hover {
-            i.fa {
-                color: @white;
-                background: @base;
-            }
-            h3 {
-                color: @base;
-            }
-        }
+//        &:hover {
+//            i.fa {
+//                color: @white;
+//                background: @base;
+//            }
+//            h3 {
+//                color: @base;
+//            }
+//        }
     }
 }
 section#howToSell {
@@ -170,7 +181,8 @@ section#features {
     }
 }
 section#reviews {
-    background: url(@img_reviews);
+    //background: url(@img_reviews);
+    background-color: @base;
     header {
         color: @white;
         h1 {
@@ -184,6 +196,10 @@ section#reviews {
             .review-person {
                 img {
                     border: 3px solid @white;
+                }
+
+                .review-name, .review-position{
+                    color: @white;
                 }
             }
             .review-comment {
@@ -199,7 +215,7 @@ section#reviews {
                     }
                 }
                 &:after {
-                    border-right-color: #ffffff;
+                    border-top-color: @white;
                 }
             }
         }
@@ -340,57 +356,51 @@ section#screens {
 }
 /* footer section */
  footer {
-     background-color: slategray;
-
-     h1{
-         color: @base;
+     background-color: dimgray;
+     .footer-item{
+         h3 {
+             color: @base;
+         }
+         h4, p {
+             color: @white;
+         }
+         ul {
+             li {
+                 a {
+                     color: @white;
+                     &:focus, &:hover{
+                         color: @base;
+                         text-decoration: none;
+                     }
+                 }
+             }
+         }
      }
 
-     h3{
-         color: @white;
-     }
-
-     ul {
-        margin: 0px;
-        padding: 0px;
-        list-style-type: none;
-
-        li {
-            a {
-                colo
-            }
-
-//            font-size: 24pt;
-//            line-height: 50px;
-
-            color: @white;
-        }
-    }
-
-    .bk-gradient(-45deg, @base, @baseDark);
-    .social {
-        a {
-            border: 2px solid @white;
-            i {
-                color: @white;
-            }
-            &:hover {
-                background: @white;
-                i {
-                    color: @base;
-                }
-            }
-        }
-    }
-    .rights {
-        color: @white;
-        a {
-            color: @white;
-            font-weight: 300;
-            text-decoration: none;
-        }
-    }
-}
+     //    .bk-gradient(-45deg, @base, @baseDark);
+//     .social {
+//         a {
+//             border: 2px solid @white;
+//             i {
+//                 color: @white;
+//             }
+//             &:hover {
+//                 background: @white;
+//                 i {
+//                     color: @base;
+//                 }
+//             }
+//         }
+//     }
+//     .rights {
+//         color: @white;
+//         a {
+//             color: @white;
+//             font-weight: 300;
+//             text-decoration: none;
+//         }
+//     }
+ }
 
 .navbar-toggle {
     background-color: #CCC;
