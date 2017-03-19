@@ -14,7 +14,7 @@ function mainService($q, $window){
         isLoggedIn
     };
     
-    function signin(username, password){;
+    function signin(username, password){
         let deferred = $q.defer();
                                         
         $window.localStorage.userInfo = {
