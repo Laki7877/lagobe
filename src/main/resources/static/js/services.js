@@ -4,14 +4,15 @@
  * Phone: +66874414008
  */
 
-function mainService($q, $window){
+function mainService($q, $window, $http){
     "ngInject";
     
     return {
         signin,
         create,
         update,
-        isLoggedIn
+        isLoggedIn,
+        getLabel
     };
     
     function signin(username, password){;
@@ -53,6 +54,13 @@ function mainService($q, $window){
     
     function isLoggedIn() {
         return $window.localStorage.userInfo != null;
+    }
+    
+    function getLabel(page,language){
+    	var promise = $http.get('languages/'+page+'/'+language+'.json').then(function(response){
+    		return response.data;
+    	});
+    	return promise;
     }
     
 }
