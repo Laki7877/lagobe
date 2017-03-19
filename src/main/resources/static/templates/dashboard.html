@@ -11,144 +11,54 @@
     </div>
 
     <header>
+        
+        <div class="background-header">
+            <img src="assets/img/freeze/bg-header.jpg" />
+        </div>
+
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-<!--
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="fa fa-bars fa-lg"></span>
                     </button>
--->
-                    <a class="navbar-brand" href="/">
+                    <a class="navbar-brand" href="index.html">
                         <img src="assets/img/freeze/logo.png" alt="" class="logo">
                     </a>
-<!--                    <a href="#"><i class="fa fa-sign-in"></i></a>-->
-<!--                    <a class="sell-with-us" ui-sref="signup">SELL WITH US</a>-->
-                    
-                    <ul class="navbar-register">
-                        <li><a href="#" register-menu menu="signin"><i class="fa fa-sign-in"></i> Sign in</a></li>
-                        <li><a href="#" register-menu menu="signup" class="sell-with-us">SELL WITH US</a></li>
-                    </ul>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-<!--
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                    <ul class="nav navbar-nav">
-                                <li><a href="#about">about</a>
-                                </li>
-                                <li><a href="#features">features</a>
-                                </li>
-                                <li><a href="#reviews">reviews</a>
-                                </li>
-                                <li><a href="#screens">screens</a>
-                                </li>
-                                <li><a href="#demo">demo</a>
-                                </li>
-                                <li><a class="getApp" href="#getApp">get app</a>
-                                </li>
-                                <li><a href="#support">support</a>
-                                </li>
-   
+                    <ul class="nav navbar-nav navbar-right">
+<!--
                         <li><a href="/">Seller</a>
                         </li>
                         <li><a href="#">Shopper</a>
                         </li>
+                        <li><a class="sell-with-us" ui-sref="signup">SELL WITH US</a>
+                        </li>
+-->
+                        
+                        <li><a href="#"><i class="fa fa-user-circle-o fa-2x"></i></a></li>
+                        
+                        <!--
+                                <li><a class="getApp" href="#getApp">get app</a>
+                                </li>
+    -->
                     </ul>
                 </div>
--->
                 <!-- /.navbar-collapse -->
             </div>
             <!-- /.container-->
         </nav>
-        <div class="header-background">
-            <img src="assets/img/freeze/bg-header.jpg" />
-        </div>
-        <div class="header-content">
-            <div align="center" class="container">
-                <div align="left" class="register-dialog">
-<!--                    <h3>Seller Center</h3>-->
-                    
-                    <h3>SELLER CENTER</h3>
-<!--                    <ul class="nav nav-pills">-->
-                    
-                    <div class="register-panel">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a id="signupTab" register-tab href="#signupPane">Sign up</a></li>
-                            <li><a id="signinTab" register-tab href="#signinPane">Sign in</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="signupPane">
-                                <form id="signupForm" action="#" method="post" class="form" role="form">
-                                    <div class="row">
-                                        <div class="col-xs-6 col-md-6" style="padding-right: 5px;">
-                                            <input class="form-control" name="firstname" placeholder="First Name" type="text" required />
-                                        </div>
-                                        <div class="col-xs-6 col-md-6" style="padding-left: 5px;">
-                                            <input class="form-control" name="lastname" placeholder="Last Name" type="text" required />
-                                        </div>
-                                    </div>
-                                    <input class="form-control" name="email" placeholder="Email" type="email" />
-                                    <input class="form-control" name="phone" placeholder="Phone" type="text" />
-                                    <input class="form-control" name="password" placeholder="Password" type="password" />
-                                    <br />
-                                    <button class="btn btn-lg btn-primary btn-block" type="submit">
-                                        Sign up</button>
-                                    <br />
-                                    <div class="agreement">
-                                        <div><input type="checkbox" checked /></div>
-                                        <div>By Signing Up to Sell you are agreeing to these Terms & Conditions.</div>
-                                    </div>
-                                    <div align="center"><a href="#" ng-click="main.viewContract()">View Seller Contract Here</a></div>
-                                </form>
-                            </div>
-                            <div class="tab-pane" id="signinPane">
-                                <form id="signinForm" method="post" ng-submit="main.signin()" novalidate>
-                                    <div class="form-group">
-                                        <label for="username" class="control-label">Username</label>
-                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="Email" ng-model="main.user.username">
-                                        <span class="help-block"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password" class="control-label">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password" placeholder="Password" ng-model="main.user.password">
-                                        <span class="help-block"></span>
-                                    </div>
-                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember" id="remember"> Remember
-                                        </label>
-                                    </div>
-                                    <br />
-                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                                    <!--                                            <a href="/forgot/" class="btn btn-default btn-block">Help to login</a>-->
-                                </form>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-        </div>
 
         <!--RevSlider-->  <!-- style="max-height: none; overflow: visible; height: 918px;"-->
         <div class="tp-banner-container">
             <div class="tp-banner">
                 <div class="container">
-
-
-
-
-                    <!--
-                        <div class="row vcenter">
-                            <div class="col-xs-5 col-md-7 col-lg-9">
-                                <div>Small</div>
-                            </div>
-                        </div>
-    -->
                 </div>
             </div>
         </div>
@@ -156,7 +66,11 @@
 
     </header>
 
+
     <div class="wrapper">
+
+
+
         <section id="about">
             <div class="container">
 
@@ -167,8 +81,7 @@
                         <p>Oleose Beautiful App Landing Page</p>
                     </div>
     -->
-WHY LAGOBE
-                
+
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="about-item scrollpoint sp-effect5">
@@ -650,13 +563,7 @@ WHY LAGOBE
                             </p>
                             <p><span class="contactus-field">E-mail: </span>hello@lagobe.com</p>
 
-<!--                            <img src="assets/img/freeze/qr-code.png" class="qr-code img-responsive" alt="">-->
-                            
-                            <img src="assets/img/freeze/qrcode.svg" class="qr-code img-responsive" alt="">
-                            
-                            
-<!--                            <img src=“http://api.qrserver.com/v1/create-qr-code/?color=000080&amp;bgcolor=FFFFFF&amp;data=https%3A%2F%2Fwww.lagobe.com&amp;qzone=1&amp;margin=0&amp;size=800x800&amp;ecc=L” alt=“qr code” />-->
-                            
+                            <img src="assets/img/freeze/qr-code.png" class="qr-code img-responsive" alt="">
                         </div>
                     </div>
                 </div>

@@ -33,7 +33,7 @@ header {
         align-items: center;
         justify-content: center;
         img {
-             width: 100%; min-width: 993px;
+             width: 100%; min-width: 902px;
              align-self: flex-start;
         }
     }
@@ -47,66 +47,20 @@ header {
         .container{
             position: relative;
             height: 100%;
-            .register-dialog{
-                border-radius: 6px;
-                float: none;
-                margin-top: 90px;
+            .signup-dialog{
+                float: right;
+                margin-top: 115px;
                 width: 320px;
                 background-color: @white;
-                //padding: 15px;
+                padding: 15px;
                 box-shadow:  1px 4px 6px rgba(0,0,0,.5);
-                opacity: 0.9;
-                h3 {
-                    margin-top: 0px;
-                    margin-bottom: 0px;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
-                    color: @white;
-                    background-color: @base;
-                    text-align: center;
-                    border-radius: 3px 3px 0px 0px;
+                .form-control{
+                    margin-bottom: 8px;
                 }
-                .register-panel {
-                    background-color: @base;
-                    .nav-tabs {
-                        border-bottom-color: @white;
-                        & > li {
-                            width: 50%;
-                            & > a {
-                                margin-right: 0px;
-                                color: @white;
-                                text-align: center;
-                                border-radius: 5px 5px 0px 0px;
-                                &:hover{
-                                    color: @darkGrey;
-                                    border-bottom-color: @white;
-                                }
-                                &:focus {
-                                    color: @base;
-                                }
-                            }
-                            &.active > a {
-                                color: @base;
-                                border-color: @white;
-                                &:focus, &:hover {
-                                    color: @base;
-                                }
-                            }
-                        }
-                    }
-                }
-                form {
-                    padding: 15px;
-                    background-color: @white;
-                    border-radius: 0px 0px 3px 3px;
-                    .form-control{
-                        margin-bottom: 10px;
-                    }
-                    .agreement {
-                        display: flex;
-                        input[type="checkbox"] {
-                             margin-right: 10px;
-                        }
+                .agreement {
+                    display: flex;
+                    input[type="checkbox"] {
+                         margin-right: 10px;
                     }
                 }
             } 
@@ -166,32 +120,18 @@ header {
             height:auto;
             padding: 0;
             padding-left: 15px;
-            img {
-                width: 220px;
-            }
         }
-        ul.navbar-register {
-            display: none;
-        }
-        
-//        ul.navbar-register {
-//            list-style-type: none;
-//            li {
-//                display: inline-block;
-//            }
-//        }
-        
 //        a.xxx{
 //            text-decoration: none;
 //            float: right;
 //        }
-//        a.sell-with-us {
-//            font-size: 17pt;
-//            padding:7px 20px;
-//            text-decoration: none;
-//            float: right;
-//            margin-top: 19px;
-//        }
+        a.sell-with-us {
+            font-size: 17pt;
+            padding:7px 20px;
+            text-decoration: none;
+            float: right;
+            margin-top: 19px;
+        }
         &.scrolled {
             background: rgba(255, 255, 255, .8);
             .box-shadow-me;
@@ -213,29 +153,9 @@ header {
         			}
         		}
             }
-            ul.navbar-register {
-                display: block;
-                float: right;
-                list-style-type: none;
-                padding: 0px;
-                padding-top: 15px;
-                li {
-                    display: inline-block;
-                    margin-right: 20px;
-                    a {
-                        text-decoration: none;
-                        display: block;
-                        &.sell-with-us{
-                            padding: 7px 20px;
-                            border-radius: 3px;
-                        }
-                    }
-                }
+            a.sell-with-us {
+                font-size: 12pt;
             }
-            
-//            a.sell-with-us {
-//                font-size: 12pt;
-//            }
         }
     }
 }
@@ -715,11 +635,11 @@ section {
 form {
     .form-control {
         .box-shadow-me(none);
-        //.rounded-corners(5em);
+        .rounded-corners(5em);
         height: 40px;
         line-height: 40px;
         padding:10px 20px;
-        //color:lighten(@lightGrey, 21%);
+        color:lighten(@lightGrey, 21%);
         border:2px solid lighten(@lightGrey, 20%);
         font-weight: 300;
     }
@@ -888,18 +808,9 @@ form {
 		.navbar-default{
 			ul.navbar-nav{
                 float: none;
-                margin-top: -51px;
-                margin-left: 240px;
+                margin-top: -40px;
+                margin-left: 315px;
 			}
-        }
-        
-        .header-content {
-            .container{
-                .register-dialog{
-                    float: right;
-                    margin-top: 33px;
-                }
-            }
         }
     }
 }

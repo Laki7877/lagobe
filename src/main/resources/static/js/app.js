@@ -4,7 +4,10 @@
  * Phone: +66874414008
  */
 
-angular.module('app', ['ngRoute',function(){
-	'use strict';
-	
-}]);
+angular.module('MainApp', [
+    'uiRouterStyles',
+    'ui.bootstrap',
+    'User'
+]);
+
+angular.module('User', []);
