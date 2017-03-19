@@ -24,9 +24,11 @@ public abstract class AbstractModel {
 	@Column(name = "updated_date")
 	private Date updatedDate;
 	
+	@JsonIgnore
 	@Column(name="create_by",length=100)
 	private String createBy;
 	
+	@JsonIgnore
 	@Column(name="update_by",length=100)
 	private String updateBy;
 	

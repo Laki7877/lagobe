@@ -9,28 +9,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name="user") 
-public class User implements Serializable {
-	
+public class User extends AbstractModel implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@Column(name="user_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long userId;
-	
+
 	@Column(name="email",length=100)
 	private String email;
-	
+
 	@Column(name="first_name",length=100)
 	private String firstName;
-	
-	
+
+
 	@Column(name="last_name",length=100)
 	private String lastName;
-	
-	
-	@Column(name="password",length=256)
+
+
+	@Column(name="password",length=255)
 	private String password;
+	
+	@Column(name="phone",length=256)
+	private String phone;
 
 
 	public Long getUserId() {
@@ -81,6 +84,16 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+
+	public String getPhone() {
+		return phone;
+	}
+
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 
 }
