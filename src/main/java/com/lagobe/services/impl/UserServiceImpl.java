@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
 			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.empty.password");
 		}
 		
+		
 		user.setPassword(encryptionUtil.hashPassword(user.getPassword()));
 		user = userDao.save(user);
 		return user;
