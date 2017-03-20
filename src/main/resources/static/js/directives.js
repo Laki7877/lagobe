@@ -216,11 +216,11 @@ function mainPage() {
 
                 //appMaster.smoothScroll();
 
-                appMaster.reviewsCarousel();
+                //appMaster.reviewsCarousel();
 
                 appMaster.screensCarousel();
 
-                appMaster.animateScript();
+//                appMaster.animateScript();
 
 //                appMaster.revSlider();
 
@@ -228,10 +228,62 @@ function mainPage() {
 
                 //appMaster.placeHold();
 
-                appMaster.animateNumber();
+                //appMaster.animateNumber();
                 
                 //appMaster.preLoader();
             });
+        }
+    };
+}
+
+function scrollVisible(){
+    "ngInject";
+
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            if(elem.hasClass('scrollpoint')){
+                if(elem.hasClass('sp-effect1')){
+                    $(elem).waypoint(function () {
+                        $(this).toggleClass('active');
+                        $(this).toggleClass('animated fadeInLeft');
+                    }, {
+                        offset: '100%'
+                    });
+                }
+                else if(elem.hasClass('sp-effect2')){
+                    $(elem).waypoint(function () {
+                        $(this).toggleClass('active');
+                        $(this).toggleClass('animated fadeInRight');
+                    }, {
+                        offset: '100%'
+                    });
+                }
+                else if(elem.hasClass('sp-effect3')){
+                    $(elem).waypoint(function () {
+                        $(this).toggleClass('active');
+                        $(this).toggleClass('animated fadeInDown');
+                    }, {
+                        offset: '100%'
+                    });
+                }
+                else if(elem.hasClass('sp-effect4')){
+                    $(elem).waypoint(function () {
+                        $(this).toggleClass('active');
+                        $(this).toggleClass('animated fadeIn');
+                    }, {
+                        offset: '100%'
+                    });
+                }
+                else if(elem.hasClass('sp-effect5')){
+                    $(elem).waypoint(function () {
+                        $(this).toggleClass('active');
+                        $(this).toggleClass('animated fadeInUp');
+                    }, {
+                        offset: '100%'
+                    });
+                }
+            }
         }
     };
 }
@@ -267,12 +319,58 @@ function registerTab(){
     };
 }
 
+function numCountSpeed() {
+    "ngInject";
+
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            $(elem).waypoint(function () {
+                $(this).animateNumber({ number: attrs.numTarget });
+
+            }, {
+                offset: '100%'
+            });
+        }
+    };
+}
+
+function reviewsCarousel($timeout) {
+    "ngInject";
+
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            $(elem).waypoint(function () {
+                $timeout(function(){
+                    $(elem).slick({
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        dots: false,
+                        arrows: true,
+                        autoplay: true,
+                        autoplaySpeed: 5000,
+                        responsive: [{
+                            breakpoint: 824,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }]
+                    });
+                }, 100);
+            });
+        }
+    };
+}
+
 angular.module('MainApp')
 .directive('mainPage', mainPage)
+.directive('scrollVisible', scrollVisible)
 .directive('registerMenu', registerMenu)
-.directive('registerTab', registerTab);
-
-
+.directive('registerTab', registerTab)
+.directive('numCountSpeed', numCountSpeed)
+.directive('reviewsCarousel', reviewsCarousel);
 
 
 
@@ -284,49 +382,86 @@ function signupPage() {
     return {
         restrict: 'E',
         link: function (scope, elem, attrs) {
-            $(function() {
-            // Nav Tab stuff
 
+        }
+    };
+}
 
-
-                $('.nav-tabs > li > a').click(function() {
-                    if($(this).hasClass('disabled')) {
-                        return false;
-                    } else {
-                        var linkIndex = $(this).parent().index() - 1;
-                        $('.nav-tabs > li').each(function(index, item) {
-                            $(this).attr('rel-index', index - linkIndex);
-                        });
-                    }
-                });
-                $('#step-1-next').click(function() {
-                    // Check values here
-                    var isValid = true;
-
-                    if(isValid) {
-                        $('.nav-tabs > li:nth-of-type(2) > a').removeClass('disabled').click();
-                    }
-                });
-                $('#step-2-next').click(function() {
-                    // Check values here
-                    var isValid = true;
-
-                    if(isValid) {
-                        $('.nav-tabs > li:nth-of-type(3) > a').removeClass('disabled').click();
-                    }
-                });
-                $('#step-3-next').click(function() {
-                    // Check values here
-                    var isValid = true;
-
-                    if(isValid) {
-                        $('.nav-tabs > li:nth-of-type(4) > a').removeClass('disabled').click();
-                    }
-                });
+function stepTab() {
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            elem.bind('click', function(event) {
+                event.preventDefault();
+                $(elem).tab('show');
             });
         }
     };
 }
 
+function signOnBehalfOf(){
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            elem.bind('click', function() {
+                scope.user.signOnbehalfOfSwitch = attrs.value;
+                scope.$apply();
+            });
+        }
+    };
+}
+
+//function signupPage() {
+//    "ngInject";
+//
+//    return {
+//        restrict: 'E',
+//        link: function (scope, elem, attrs) {
+//            $(function() {
+//            // Nav Tab stuff
+//
+//
+//
+//                $('.nav-tabs > li > a').click(function() {
+//                    if($(this).hasClass('disabled')) {
+//                        return false;
+//                    } else {
+//                        var linkIndex = $(this).parent().index() - 1;
+//                        $('.nav-tabs > li').each(function(index, item) {
+//                            $(this).attr('rel-index', index - linkIndex);
+//                        });
+//                    }
+//                });
+//                $('#step-1-next').click(function() {
+//                    // Check values here
+//                    var isValid = true;
+//
+//                    if(isValid) {
+//                        $('.nav-tabs > li:nth-of-type(2) > a').removeClass('disabled').click();
+//                    }
+//                });
+//                $('#step-2-next').click(function() {
+//                    // Check values here
+//                    var isValid = true;
+//
+//                    if(isValid) {
+//                        $('.nav-tabs > li:nth-of-type(3) > a').removeClass('disabled').click();
+//                    }
+//                });
+//                $('#step-3-next').click(function() {
+//                    // Check values here
+//                    var isValid = true;
+//
+//                    if(isValid) {
+//                        $('.nav-tabs > li:nth-of-type(4) > a').removeClass('disabled').click();
+//                    }
+//                });
+//            });
+//        }
+//    };
+//}
+
 angular.module('User')
-.directive('signupPage', signupPage);
+.directive('signupPage', signupPage)
+.directive('stepTab', stepTab)
+.directive('signOnBehalfOf', signOnBehalfOf);

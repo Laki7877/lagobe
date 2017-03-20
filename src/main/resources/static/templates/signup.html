@@ -1,143 +1,453 @@
 <signup-page>
-    <div class="head">
-        <img src="assets/img/freeze/logo.png" alt="" class="logo">
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="board">
-                <ul class="nav nav-tabs">
-                    <div class="liner"></div>
-                    <li rel-index="0" class="active">
-                        <a href="#step-1" class="btn" aria-controls="step-1" role="tab" data-toggle="tab">
-                            <span><i class="glyphicon glyphicon-user"></i></span>
-                        </a>
-                    </li>
-                    <li rel-index="1">
-                        <a href="#step-2" class="btn disabled" aria-controls="step-2" role="tab" data-toggle="tab">
-                            <span><i class="glyphicon glyphicon-heart"></i></span>
-                        </a>
-                    </li>
-                    <li rel-index="2">
-                        <a href="#step-3" class="btn disabled" aria-controls="step-3" role="tab" data-toggle="tab">
-                            <span><i class="glyphicon glyphicon-plus"></i></span>
-                        </a>
-                    </li>
-                    <li rel-index="3">
-                        <a href="#step-4" class="btn disabled" aria-controls="step-4" role="tab" data-toggle="tab">
-                            <span><i class="glyphicon glyphicon-ok"></i></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <header>
+        <img src="assets/img/freeze/logo-white.png" alt="" class="logo">
+    </header>
+    <div class="wrapper">
+        <div class="col-md-3 col-sm-3 left-side">
+            <ul class="step-tabs">
+                <li><a class="step-tab" href="#step1" step-tab>ข้อมูลร้านค้า</a></li>
+                <li><a class="step-tab" href="#step2" step-tab>ข้อมูลทางการเงิน</a></li>
+                <li><a class="step-tab" href="#step3" step-tab>ที่อยู่รับส่งสินค้า</a></li>
+                <li><a class="step-tab" href="#step4" step-tab>ติดต่อฝ่ายขาย</a></li>
+                <li><a class="step-tab" href="/">ลงชื่อออก</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 col-sm-9 right-side">
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="step-1">
-                    <div class="col-md-12" style="padding-bottom: 20px;">
-                        <h3>Store’s Owner Information</h3>
-                        <div class="col-md-6">
+                <div role="tabpanel" class="tab-pane active" id="step1">
+                    <div class="col-md-12">
+                        <div class="col-md-5 col-md-push-1" style="background-color: white; ">
+                            <h1>ข้อมูลร้านค้า</h1>
                             <div class="form-group">
-                                <label class="control-label">Sales Contact Number</label>
-                                <input name="salesContactName" type="text" placeholder="" class="form-control" required />
+                                <label class="control-label">ชื่อร้านค้า</label>
+
+                                <input name="storeName" type="text" placeholder="ชื่อร้านค้า" class="form-control" required />
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Email Address</label>
-                                <input name="email" type="text" placeholder="" class="form-control" required />
+                                <label class="control-label">ลงทะเบียนในนาม</label>
+                                <div style="display: flex;">
+                                    <div style="width: 50%; margin-right: 4px;"><input sign-on-behalf-of type="radio" name="signOnbehalfOf" value="individual" checked /> บุคคล</div>
+                                    <div style="width: 50%; margin-left: 4px;"><input sign-on-behalf-of type="radio" name="signOnbehalfOf" value="company" /> นิติบุคคล</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
+
+                            <div ng-switch on="user.signOnbehalfOfSwitch">
+                                <div ng-switch-when="individual">
+                                    <div class="form-group">
+                                        <label class="control-label">ชื่อ - นามสกุล ผู้ลงทะเบียน</label>
+                                        <div style="display: flex;">
+                                            <input name="storeIndividualFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
+                                            <input name="storeIndividualLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                        <input name="citizenID" type="text" placeholder="เลขบัตรประจำตัวประชาชน" class="form-control" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="display: flex;">
+                                            <div style="width: 50%; margin-right: 4px;">
+                                                <label class="control-label">เบอร์โทรศัพท์</label>
+                                                <input name="storeIndividualPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
+                                            </div>
+                                            <div style="width: 50%; margin-left: 4px;">
+                                                <label class="control-label">LINE ID</label>
+                                                <input name="storeIndividualLineID" type="text" placeholder="LINE ID" class="form-control" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="display: flex;">
+                                            <div style="width: 50%; margin-right: 4px;">
+                                                <label class="control-label">อีเมล</label>
+                                                <input name="storeIndividualEmail" type="text" placeholder="อีเมล" class="form-control" required />
+                                            </div>
+                                            <div style="width: 50%; margin-left: 4px;">
+                                                <label class="control-label">Facebook</label>
+                                                <input name="storeIndividualFacebook" type="text" placeholder="Facebook" class="form-control" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="checkbox" /> ผู้ติดต่อชื่อเดียวกันกับผู้ลงทะเบียน
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">ชื่อ - นามสกุล ผู้ติดต่อ</label>
+                                        <div style="display: flex;">
+                                            <input name="storeIndividualContactFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
+                                            <input name="storeIndividualContactLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                        <input name="storeIndividualContactCitizenID" type="text" placeholder="เลขบัตรประจำตัวประชาชน" class="form-control" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="display: flex;">
+                                            <div style="width: 50%; margin-right: 4px;">
+                                                <label class="control-label">เบอร์โทรศัพท์</label>
+                                                <input name="storeIndividualContactPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
+                                            </div>
+                                            <div style="width: 50%; margin-left: 4px;">
+                                                <label class="control-label">LINE ID</label>
+                                                <input name="storeIndividualContactLineID" type="text" placeholder="LINE ID" class="form-control" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="display: flex;">
+                                            <div style="width: 50%; margin-right: 4px;">
+                                                <label class="control-label">อีเมล</label>
+                                                <input name="storeIndividualContactEmail" type="text" placeholder="อีเมล" class="form-control" required />
+                                            </div>
+                                            <div style="width: 50%; margin-left: 4px;">
+                                                <label class="control-label">Facebook</label>
+                                                <input name="storeIndividualContactFacebook" type="text" placeholder="Facebook" class="form-control" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-switch-when="company">
+                                    <div class="form-group">
+                                        <label class="control-label">ชื่อนิติบุคคล</label>
+                                        <div style="display: flex;">
+                                            <select name="storeCompanyPrefix" class="form-control" style="width: 35%; margin-right: 4px;">
+                                                <option>คำนำหน้า</option>
+                                            </select>
+                                            <input name="storeCompanyName" type="text" placeholder="ชื่อนิติบุคคล" class="form-control" style="width: 65%; margin-left: 4px;" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">เลขบัตรประจำตัวผู้เสียภาษี</label>
+                                        <input name="companyTaxID" type="text" placeholder="เลขบัตรประจำตัวผู้เสียภาษี" class="form-control" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="display: flex;">
+                                            <div style="width: 50%; margin-right: 4px;">
+                                                <label class="control-label">เบอร์โทรศัพท์</label>
+                                                <input name="storeCompanyPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
+                                            </div>
+                                            <div style="width: 50%; margin-left: 4px;">
+                                                <label class="control-label">LINE ID</label>
+                                                <input name="storeCompanyLineID" type="text" placeholder="LINE ID" class="form-control" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="display: flex;">
+                                            <div style="width: 50%; margin-right: 4px;">
+                                                <label class="control-label">อีเมล</label>
+                                                <input name="storeCompanyEmail" type="text" placeholder="อีเมล" class="form-control" required />
+                                            </div>
+                                            <div style="width: 50%; margin-left: 4px;">
+                                                <label class="control-label">Facebook</label>
+                                                <input name="storeCompanyFacebook" type="text" placeholder="Facebook" class="form-control" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label>ผู้ติดต่อ</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">ชื่อ - นามสกุล</label>
+                                        <div style="display: flex;">
+                                            <input name="storeCompanyContactFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
+                                            <input name="storeCompanyContactLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                        <input name="storeCompanyContactCitizenID" type="text" placeholder="เลขบัตรประจำตัวประชาชน" class="form-control" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="display: flex;">
+                                            <div style="width: 50%; margin-right: 4px;">
+                                                <label class="control-label">เบอร์โทรศัพท์</label>
+                                                <input name="storeCompanyContactPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
+                                            </div>
+                                            <div style="width: 50%; margin-left: 4px;">
+                                                <label class="control-label">LINE ID</label>
+                                                <input name="storeCompanyContactLineID" type="text" placeholder="LINE ID" class="form-control" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="display: flex;">
+                                            <div style="width: 50%; margin-right: 4px;">
+                                                <label class="control-label">อีเมล</label>
+                                                <input name="storeCompanyContactEmail" type="text" placeholder="อีเมล" class="form-control" required />
+                                            </div>
+                                            <div style="width: 50%; margin-left: 4px;">
+                                                <label class="control-label">Facebook</label>
+                                                <input name="storeCompanyContactFacebook" type="text" placeholder="Facebook" class="form-control" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                            <!--
+                                <label class="control-label">บุคคล</label>
+                                <input name="citizenID" type="text" placeholder="เลขบัตรประจำตัวประชาชน" class="form-control" required />
+
+                                <label class="control-label">บริษัท</label>
+                                <input name="companyTaxID" type="text" placeholder="เลขประจำตัวผู้เสียภาษี" class="form-control" required />
+-->
+
+
+
+
+
+<!--
                             <div class="form-group">
-                                <label class="control-label">Sales Contact Number</label>
-                                <input name="salesContactNumber" type="text" placeholder="" class="form-control" required />
+                                <label class="control-label">ชื่อพนักงานเซลล์ของร้านค้า</label>
+                                <div style="display: flex;">
+                                    <input name="saleFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
+                                    <input name="saleLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" /> เลือกชื่อเดียวกันสำหรับวางบิล
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ชื่อสำหรับวางบิล</label>
+                                <div style="display: flex;">
+                                    <input name="invoiceFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
+                                    <input name="invoiceLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">เบอร์โทรศัพท์พนักงานเซลล์ของร้านค้า</label>
+
+                                <input name="salePhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">อีเมล</label>
+
+                                <input name="saleEmail" type="text" placeholder="อีเมล" class="form-control" required />
+                            </div>
+-->
+                            <div align="center" style="display: flex;">
+                                <button class="btn btn-lg btn-primary btn-save">บันทึก</button>
+                                <button class="btn btn-lg btn-primary btn-cancel">ยกเลิก</button>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group" style="visibility: hidden;">
-                                <label class="control-label"></label>
-                                <input name="salesContactNumber" type="text" placeholder="" class="form-control" required />
+                        <div class="col-md-5 col-md-push-2" style="background-color: white;">
+                            <h1>สำเนาเอกสาร</h1>
+                            <div ng-switch on="user.signOnbehalfOfSwitch">
+                                <div ng-switch-when="individual">
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาบัตรประชาชน</label>
+                                        <input name="storeIndividualCitizenCard" type="file" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาทะเบียนบ้าน</label>
+                                        <input name="storeIndividuaHomeRegister" type="file" class="form-control" />
+                                    </div>
+                                </div>
+                                <div ng-switch-when="company">
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาหนังสือรับรอง</label>
+                                        <input name="storeCompanyCertificate" type="file" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาทะเบียนการค้า</label>
+                                        <input name="storeCompanyTradeRegister" type="file" class="form-control" />
+                                    </div>
+                                </div>
                             </div>
+
+
+
+
+
+<!--
+                            <h1>ข้อมูลของลาโกบี้</h1>
+                            <div class="form-group">
+                                <label class="control-label">ชื่อพนักงานขาย</label>
+
+                                <input name="ฺBDFirstName" type="text" placeholder="ชื่อ" class="form-control" required />
+                                <input name="BDLastName" type="text" placeholder="นามสกุล" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">อีเมล</label>
+
+                                <input name="BDEmail" type="text" placeholder="อีเมล" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ค่าคอมมิชชั่น</label>
+
+                                <input name="commission" type="text" placeholder="" class="form-control" value="14%" readonly required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">โปรโมชั่นโค๊ด</label>
+
+                                <input name="promotionCode" type="text" placeholder="โปรโมชั่นโค๊ด" class="form-control" required />
+                            </div>
+-->
                         </div>
-                        <button id="step-1-next" class="btn btn-lg btn-primary nextBtn pull-right">Next</button>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="step-2">
-                    <div class="col-md-12" style="padding-bottom: 20px;">
-                        <h3>Store Information</h3>
-                        <div class="col-md-6">
+                <div role="tabpanel" class="tab-pane" id="step2">
+                    <div class="col-md-12">
+                        <div class="col-md-5 col-md-push-1" style="background-color: white;">
+                            <h1>ข้อมูลทางการเงิน</h1>
                             <div class="form-group">
-                                <label class="control-label">Store Name</label>
-                                <input name="storeName" type="text" placeholder="" class="form-control" required />
+                                <label class="control-label">ชื่อธนาคาร</label>
+                                <select class="form-control">
+                                    <option>เลือกธนาคาร</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Website</label>
-                                <input name="website" type="text" placeholder="" class="form-control" required />
+                                <label class="control-label">สาขา</label>
+                                <input name="bankAccountBranch" type="text" placeholder="สาขา" class="form-control" required />
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Facebook</label>
-                                <input name="facebook" type="text" placeholder="" class="form-control" required />
+                                <label class="control-label">เลขที่บัญชี</label>
+                                <input name="bankAccountNumber" type="text" placeholder="เลขที่บัญชี" class="form-control" required />
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Pick-up Address</label>
-                                <input name="pickupAddr" type="text" placeholder="" class="form-control" required />
+                                <label class="control-label">ประเภทบัญชี</label>
+                                <select class="form-control">
+                                    <option>เลือกประเภท</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Document Drop Address</label>
-                                <input name="docDropAddr" type="text" placeholder="" class="form-control" required />
+                                <label class="control-label">ชื่อบัญชี</label>
+                                <input name="bankAccountName" type="text" placeholder="ชื่อบัญชี" class="form-control" required />
+                            </div>
+                            <div align="center" style="display: flex;">
+                                <button class="btn btn-lg btn-primary btn-save">บันทึก</button>
+                                <button class="btn btn-lg btn-primary btn-cancel">ยกเลิก</button>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group" style="visibility: hidden;">
-                                <label class="control-label"></label>
-                                <input name="salesContactNumber" type="text" placeholder="" class="form-control" required />
-                            </div>
-                        </div>
-                        <button id="step-2-next" class="btn btn-lg btn-primary nextBtn pull-right">Next</button>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="step-3">
-                    <div class="col-md-12" style="padding-bottom: 20px;">
-                        <h3> Bank Information</h3>
-                        <div class="col-md-6">
+                <div role="tabpanel" class="tab-pane" id="step3">
+                    <div class="col-md-12">
+                        <div class="col-md-5 col-md-push-1" style="background-color: white;">
+                            <h1>ที่อยู่การรับสินค้า</h1>
                             <div class="form-group">
-                                <label class="control-label">Bank Account Number</label>
-                                <input name="bankAccNo" type="text" placeholder="" class="form-control" required />
+                                <label class="control-label">รหัสไปรษณีย์</label>
+
+                                <input name="pickupZipCode" type="text" placeholder="รหัสไปรษณีย์" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">จังหวัด</label>
+                                <select name="pickupProvince" class="form-control">
+                                    <option>เลือกจังหวัด</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">เขต / อำเภอ</label>
+                                <select name="pickupAmphur" class="form-control">
+                                    <option>เลือกเขต / อำเภอ</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">แขวง / ตำบล</label>
+                                <select name="pickupTumbon" class="form-control">
+                                    <option>เลือกแขวง / ตำบล</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ที่อยู่</label>
+
+                                <input name="pickupAddress" type="text" placeholder="ที่อยู่" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" /> ใช้ที่อยู่เดียวกันกับการส่งเอกสาร
+                            </div>
+                            <div align="center" style="display: flex;">
+                                <button class="btn btn-lg btn-primary btn-save">บันทึก</button>
+                                <button class="btn btn-lg btn-primary btn-cancel">ยกเลิก</button>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5 col-md-push-2" style="background-color: white;">
+                            <h1>ที่อยู่การส่งเอกสาร</h1>
                             <div class="form-group">
-                                <label class="control-label">Bank Name</label>
-                                <input name="bankName" type="text" placeholder="" class="form-control" required />
+                                <label class="control-label">รหัสไปรษณีย์</label>
+
+                                <input name="documentDropZipCode" type="text" placeholder="รหัสไปรษณีย์" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">จังหวัด</label>
+                                <select name="documentDropProvince" class="form-control">
+                                    <option>เลือกจังหวัด</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">เขต / อำเภอ</label>
+                                <select name="documentDropAmphur" class="form-control">
+                                    <option>เลือกเขต / อำเภอ</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">แขวง / ตำบล</label>
+                                <select name="documentDropTumbon" class="form-control">
+                                    <option>เลือกแขวง / ตำบล</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ที่อยู่</label>
+
+                                <input name="documentDropAddress" type="text" placeholder="ที่อยู่" class="form-control" required />
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label">Bank Account Name</label>
-                                <input name="bankAccName" type="text" placeholder="" class="form-control" required />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label">Commissions</label>
-                                <input name="salesContactNumber" type="text" placeholder="" class="form-control" value="11%" readonly />
-                            </div>
-                        </div>
-                        <button id="step-3-next" class="btn btn-lg btn-primary nextBtn pull-right">Next</button>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="step-4">
-                    <div class="col-md-12" style="padding-bottom: 20px;">
-                        <h3> Summary</h3>
-                        <button id="step-4-next" class="btn btn-lg btn-primary pull-right">Continue</button>
+                <div role="tabpanel" class="tab-pane" id="step4">
+                    <div class="col-md-12">
+                        <div class="col-md-5 col-md-push-1" style="background-color: white;">
+                            <h1>ข้อมูลฝ่ายขาย</h1>
+
+                            <div class="form-group">
+                                <label class="control-label">โปรโมชั่นโค๊ด</label>
+                                <div style="display: flex;">
+                                    <input name="promotionCode" type="text" placeholder="โปรโมชั่นโค๊ด" class="form-control" style="border-radius: 4px 0px 0px 4px; border-right: none; width: 70%;" required />
+                                    <button style="width: 30%;">ตรวจสอบ</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ค่าคอมมิชชั่น</label>
+
+                                <input name="commission" type="text" placeholder="" class="form-control" value="14%" readonly required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ชื่อพนักงานฝ่ายขาย</label>
+                                <div style="display: flex; align-items: center;">
+                                    <input name="ฺBDCode" type="text" placeholder="รหัส" class="form-control" style="width: 20%; margin-right: 10px;" readonly required />
+                                    <span name="BDFirstName" style="margin-right: 10px;">ชื่อ</span>
+                                    <span name="BDLastName" style="margin-right: 10px;">นามสกุล</span>
+                                    (<span name="BDNickname" style="margin-right: 10px;">ชื่อเล่น</span>)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">เบอร์โทรศัพท์</label>
+                                <input name="ฺBDPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" readonly required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">LINE ID</label>
+                                <input name="ฺBDLineID" type="text" placeholder="LINE ID" class="form-control" readonly required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">อีเมล</label>
+                                <input name="ฺBDEmail" type="text" placeholder="อีเมล" class="form-control" readonly required />
+                            </div>
+                        </div>
                     </div>
+<!--
+                    <div align="center">
+                        <button class="btn btn-lg btn-primary btn-save">บันทึก</button>
+                        <button class="btn btn-lg btn-primary btn-cancel">ยกเลิก</button>
+                    </div>
+-->
                 </div>
             </div>
         </div>

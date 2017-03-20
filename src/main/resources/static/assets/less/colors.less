@@ -32,7 +32,11 @@
 @lightGrey:   #999999;
 @darkGrey:    #666666;
 @white:       #ffffff;
-@font-stack: 'Montserrat-Light', 'Montserrat-Regular', 'Lato', Arial;
+//@font-stack: 'Montserrat-Light', 'Montserrat-Regular', 'Lato', Arial;
+
+@font-stack: 'Montserrat-Light', 'Montserrat-Regular', 'Kanit', 'Lato', Arial;
+
+//@font-stack: 'Kanit', 'Lato', Arial;
 
 
 header{
@@ -118,8 +122,9 @@ section{
 	}
 }
 
-section#about {
-    .about-item {
+section#why {
+    background-color: @base;
+    .why-item {
         i.fa {
             color: @base;
         }

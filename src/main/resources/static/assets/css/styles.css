@@ -24,12 +24,12 @@
   src: url('/assets/fonts/Montserrat-Regular.ttf') format('truetype');
 }
 body {
-  font-family: 'Montserrat-Light', 'Montserrat-Regular', 'Lato', Arial;
+  font-family: 'Montserrat-Light', 'Montserrat-Regular', 'Kanit', 'Lato', Arial;
   color: #666666;
   -webkit-font-smoothing: antialiased;
 }
 a {
-  font-family: 'Montserrat-Light', 'Montserrat-Regular', 'Lato', Arial;
+  font-family: 'Montserrat-Light', 'Montserrat-Regular', 'Kanit', 'Lato', Arial;
   -webkit-font-smoothing: antialiased;
 }
 div.content {
@@ -81,18 +81,9 @@ header .header-content .container .register-dialog {
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.5);
   opacity: 0.9;
 }
-header .header-content .container .register-dialog h3 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  color: #ffffff;
-  background-color: #000080;
-  text-align: center;
-  border-radius: 3px 3px 0px 0px;
-}
 header .header-content .container .register-dialog .register-panel {
   background-color: #000080;
+  border-radius: 0px 0px 6px 6px;
 }
 header .header-content .container .register-dialog .register-panel .nav-tabs {
   border-bottom-color: #ffffff;
@@ -104,7 +95,7 @@ header .header-content .container .register-dialog .register-panel .nav-tabs > l
   margin-right: 0px;
   color: #ffffff;
   text-align: center;
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 8px 8px 0px 0px;
 }
 header .header-content .container .register-dialog .register-panel .nav-tabs > li > a:hover {
   color: #666666;
@@ -124,16 +115,48 @@ header .header-content .container .register-dialog .register-panel .nav-tabs > l
 header .header-content .container .register-dialog form {
   padding: 15px;
   background-color: #ffffff;
-  border-radius: 0px 0px 3px 3px;
+  border-radius: 0px 0px 6px 6px;
 }
 header .header-content .container .register-dialog form .form-control {
   margin-bottom: 10px;
+}
+header .header-content .container .register-dialog form .justify {
+  display: flex;
+  justify-content: space-between;
+}
+header .header-content .container .register-dialog form .justify .remember,
+header .header-content .container .register-dialog form .justify .forgotpw {
+  line-height: 24px;
+  margin-bottom: 0px;
 }
 header .header-content .container .register-dialog form .agreement {
   display: flex;
 }
 header .header-content .container .register-dialog form .agreement input[type="checkbox"] {
   margin-right: 10px;
+}
+header .sc-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 6px 6px 0px 0px;
+  background-color: #000080;
+  height: 54px;
+}
+header .sc-header h3 {
+  margin: 0px;
+  color: #ffffff;
+}
+header .sc-header .switch-lang {
+  border: 1px solid;
+  padding: 6px;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+header .sc-header .switch-lang:active {
+  color: #999999;
 }
 header .navbar-default {
   background: none;
@@ -179,11 +202,15 @@ header .navbar-default .navbar-brand {
   height: auto;
   padding: 0;
   padding-left: 15px;
+  padding-top: 18px;
 }
 header .navbar-default .navbar-brand img {
   width: 220px;
 }
 header .navbar-default ul.navbar-register {
+  display: none;
+}
+header .navbar-default .navbar-sc {
   display: none;
 }
 header .navbar-default.scrolled {
@@ -199,11 +226,11 @@ header .navbar-default.scrolled {
   transition: all 0.25s ease-in-out;
 }
 header .navbar-default.scrolled .navbar-brand {
-  padding: 15px 20px;
+  padding: 15px 15px;
 }
 header .navbar-default.scrolled .navbar-brand img {
   width: auto;
-  max-height: 33px;
+  max-height: 24px;
 }
 header .navbar-default.scrolled ul.navbar-nav {
   padding-top: 15px;
@@ -217,19 +244,50 @@ header .navbar-default.scrolled ul.navbar-register {
   float: right;
   list-style-type: none;
   padding: 0px;
-  padding-top: 15px;
+  padding-top: 13px;
 }
 header .navbar-default.scrolled ul.navbar-register li {
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 15px;
 }
 header .navbar-default.scrolled ul.navbar-register li a {
   text-decoration: none;
   display: block;
 }
 header .navbar-default.scrolled ul.navbar-register li a.sell-with-us {
-  padding: 7px 20px;
+  padding: 7px 10px;
   border-radius: 3px;
+}
+header .navbar-default.scrolled .navbar-sc {
+  width: 55%;
+  max-width: 320px;
+  margin-top: 6px;
+  float: right;
+  display: block;
+}
+header .navbar-default.scrolled .navbar-sc .sc-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 6px 6px 0px 0px;
+  background-color: #000080;
+  height: 54px;
+}
+header .navbar-default.scrolled .navbar-sc .sc-header h3 {
+  margin: 0px;
+  color: #ffffff;
+  font-size: 18px;
+}
+header .navbar-default.scrolled .navbar-sc .sc-header .switch-lang {
+  border: 1px solid;
+  padding: 6px;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+header .navbar-default.scrolled .navbar-sc .sc-header .switch-lang:active {
+  color: #999999;
 }
 .navbar-toggle {
   float: left;
@@ -247,7 +305,7 @@ header .navbar-default.scrolled ul.navbar-register li a.sell-with-us {
   bottom: -70px;
 }
 .section-heading {
-  margin: 60px 0 80px;
+  margin: 0px 0px 60px;
   text-align: center;
 }
 .section-heading h1 {
@@ -265,7 +323,7 @@ header .navbar-default.scrolled ul.navbar-register li a.sell-with-us {
   content: "";
   position: relative;
   height: 4px;
-  width: 60px;
+  width: 100px;
   display: block;
   text-align: center;
   margin: 13px auto;
@@ -282,15 +340,21 @@ header .navbar-default.scrolled ul.navbar-register li a.sell-with-us {
 .section-heading.inverse .divider:after {
   background: #ffffff;
 }
-section#about {
+section#why {
   position: relative;
 }
-section#about .about-item {
+section#why .section-heading h1 {
+  color: #ffffff;
+}
+section#why .why-item {
   padding: 10px 0;
   text-align: center;
   font-size: 17px;
   line-height: 25px;
-  color: #999999;
+  color: #ffffff;
+}
+section#why .why-item h3 {
+  color: #ffffff;
 }
 section#howToSell .how-to-sell p {
   font-size: 16pt;
@@ -301,7 +365,7 @@ section#howToSell .how-to-sell ul {
   list-style-type: none;
 }
 section#howToSell .how-to-sell ul li {
-  font-size: 24pt;
+  font-size: 20pt;
   line-height: 50px;
 }
 section#howToSell .how-to-sell ul li i.fa {
@@ -598,7 +662,7 @@ footer .footer-item ul li a {
 }
 footer .footer-item .contactus-field {
   display: inline-block;
-  width: 54px;
+  width: 58px;
 }
 footer .footer-item .qr-code {
   margin-top: 20px;
@@ -642,7 +706,7 @@ section::after {
   z-index: 2;
 }
 .tp-caption {
-  font-family: 'Montserrat-Light', 'Montserrat-Regular', 'Lato', Arial !important;
+  font-family: 'Montserrat-Light', 'Montserrat-Regular', 'Kanit', 'Lato', Arial !important;
   -webkit-font-smoothing: antialiased;
 }
 .tp-caption.large_white_bold {
@@ -712,6 +776,7 @@ form .form-control {
   line-height: 40px;
   padding: 10px 20px;
   border: 2px solid #cccccc;
+  border-radius: 6px;
   font-weight: 300;
 }
 form textarea.form-control {
@@ -873,6 +938,29 @@ form textarea.form-control {
   }
 }
 @media (min-width: 768px) {
+  .sc-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 6px 6px 0px 0px;
+    background-color: #000080;
+    height: 54px;
+  }
+  .sc-header h3 {
+    margin: 0px;
+    color: #ffffff;
+  }
+  .sc-header .switch-lang {
+    border: 1px solid;
+    padding: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .sc-header .switch-lang:active {
+    color: #999999;
+  }
   .navbar-header {
     float: none;
   }
@@ -880,6 +968,17 @@ form textarea.form-control {
     float: none;
     margin-top: -51px;
     margin-left: 240px;
+  }
+  header .navbar-default.scrolled .navbar-brand img {
+    max-height: 30px;
+  }
+  header .navbar-default.scrolled .navbar-sc {
+    width: 320px;
+  }
+  header .navbar-default.scrolled .navbar-sc .sc-header h3 {
+    margin: 0px;
+    color: #ffffff;
+    font-size: 24px;
   }
   header .header-content .container .register-dialog {
     float: right;
@@ -960,10 +1059,13 @@ header .navbar-default.scrolled ul.navbar-register li a.sell-with-us {
 section .section-heading .divider:after {
   background: #000080;
 }
-section#about .about-item i.fa {
+section#why {
+  background-color: #000080;
+}
+section#why .why-item i.fa {
   color: #000080;
 }
-section#about a.find-out-more {
+section#why a.find-out-more {
   color: #000080;
 }
 section#howToSell {

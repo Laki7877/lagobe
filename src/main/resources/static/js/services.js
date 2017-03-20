@@ -4,7 +4,7 @@
  * Phone: +66874414008
  */
 
-function mainService($q, $window, $http){
+function mainService(PAGE, $q, $window, $http){
     "ngInject";
     
     return {
@@ -57,7 +57,21 @@ function mainService($q, $window, $http){
     }
     
     function getLabel(page,language){
-    	var promise = $http.get('languages/'+page+'/'+language+'.json').then(function(response){
+        let _language;
+        if(!language){
+            if($window.localStorage.lang) {
+                _language = $window.localStorage.lang;
+            }
+            else{
+                _language = PAGE.LANGUAGE;
+            }
+        }
+        else{
+            _language = language;
+        }
+        $window.localStorage.lang = _language;
+
+    	var promise = $http.get('languages/'+page+'/'+_language+'.json').then(function(response){
     		return response.data;
     	});
     	return promise;

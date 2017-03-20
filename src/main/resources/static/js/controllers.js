@@ -6,22 +6,34 @@
 
 
 class ParentController {
-	constructor(){
+	constructor($window){
+        this._$window = $window;
 		this.label = {};
 	}
 	
 	loadLabel(page,language){
-		this._mainService.getLabel(page,language)
-		.then(
-				(data) => {
-					this.label = data;
-				},
-				(data) => {
-					console.log(data);
-				}
-		);
+		this._mainService.getLabel(page, language)
+		    .then(
+		        (data) => {
+		            this.label = data;
+		        }, (data) => {
+		            console.log(data);
+		        }
+		    );
 	}
 
+    switchLanguage(page) {
+        let languageOld = this._$window.localStorage.lang;
+        let languageNew;
+
+        if(languageOld == "en") {
+            languageNew = "th";
+        }
+        else if(languageOld == "th") {
+            languageNew = "en"
+        }
+        this.loadLabel(page, languageNew);
+    }
 }
 
 class MainController extends ParentController {
@@ -36,7 +48,7 @@ class MainController extends ParentController {
 
 		
 
-		this.loadLabel('landingpage','th');
+		this.loadLabel('landingpage');
 	}
 
 	viewContract() {
@@ -67,6 +79,8 @@ class MainController extends ParentController {
 class UserController{
 	constructor() {
 		"ngInject";
+
+        this.signOnbehalfOfSwitch = "individual";
 
 	}
 }
