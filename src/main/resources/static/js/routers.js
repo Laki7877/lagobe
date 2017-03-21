@@ -5,19 +5,19 @@
  */
 
 function mainConfig($urlRouterProvider, $stateProvider, $locationProvider){
-    "ngInject";    
-    
+    "ngInject";
+
 //    $locationProvider.html5Mode(true);
-    
+
 //    $locationProvider.html5Mode({
 //        enabled: true,
 //        requireBase: false
 //    });
-    
-    
-    
+
+
+
     $urlRouterProvider.otherwise("/");
-    
+
     $stateProvider
         .state("main", {
             url: "/",
@@ -25,7 +25,7 @@ function mainConfig($urlRouterProvider, $stateProvider, $locationProvider){
             controller: "MainController",
             controllerAs: "main",
         })
-    
+
         .state("test", {
             url: "/test",
             templateUrl: "templates/test.html",
@@ -45,6 +45,15 @@ function mainConfig($urlRouterProvider, $stateProvider, $locationProvider){
             controllerAs: "user",
             data: {
                 css: "assets/css/signup.css"
+            }
+        })
+        .state("privacy", {
+            url: "/privacy",
+            templateUrl: "templates/privacy.html",
+            controller: "UserController",
+            controllerAs: "user",
+            data: {
+                css: "assets/css/privacy.css"
             }
         });
 }
