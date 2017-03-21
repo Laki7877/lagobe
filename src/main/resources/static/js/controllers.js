@@ -77,12 +77,112 @@ class MainController extends ParentController {
 }
 
 class UserController{
-	constructor() {
+	constructor($scope) {
 		"ngInject";
+
+        this._$scope = $scope;
 
         this.signOnbehalfOfSwitch = "individual";
 
+        this.signupInfo = {
+            store: {
+                storeName: "",
+                signOnBehalfOf: "",
+                individual: {
+                    register: {
+                        firstName: "",
+                        lastName: "",
+                        citizenID: "",
+                        phone: "",
+                        lineID: "",
+                        email: "",
+                        facebook: ""
+                    },
+                    isContactSameRegister: false,
+                    contact: {
+                        firstName: "",
+                        lastName: "",
+                        citizenID: "",
+                        phone: "",
+                        lineID: "",
+                        email: "",
+                        facebook: ""
+                    },
+                    document: {
+                        citizenCard: null,
+                        homeRegister: null
+                    }
+                },
+                company: {
+                    register: {
+                        companyPrefix: "",
+                        companyName: "",
+                        taxID: "",
+                        phone: "",
+                        lineID: "",
+                        email: "",
+                        facebook: ""
+                    },
+                    contact: {
+                        firstName: "",
+                        lastName: "",
+                        citizenID: "",
+                        phone: "",
+                        lineID: "",
+                        email: "",
+                        facebook: ""
+                    },
+                    document: {
+                        companyCertificate: null,
+                        tradeRegister: null
+                    }
+                }
+            },
+            bank: {
+                bankName: "",
+                bankBranch: "",
+                accountNumber: "",
+                accountType: "",
+                accountName: ""
+            },
+            address: {
+                pickup: {
+                    zipCode: "",
+                    province: "",
+                    amphur: "",
+                    tumbon: "",
+                    other: ""
+                },
+                isDocumentDropSamePickup: false,
+                documentDrop: {
+                    zipCode: "",
+                    province: "",
+                    amphur: "",
+                    tumbon: "",
+                    other: ""
+                }
+            },
+            saleDept: {
+                promotionCode: ""
+            }
+        };
 	}
+
+    updateStoreIndividualContactValues() {
+        if(this.signupInfo.store.individual.isContactSameRegister){
+            $.each(this.signupInfo.store.individual.contact, (field, value) => {
+                this.signupInfo.store.individual.contact[field] = this.signupInfo.store.individual.register[field];
+            });
+        }
+    }
+
+    updateAddressDocumentDropValues() {
+        if(this.signupInfo.address.isDocumentDropSamePickup){
+            $.each(this.signupInfo.address.documentDrop, (field, value) => {
+                this.signupInfo.address.documentDrop[field] = this.signupInfo.address.pickup[field];
+            });
+        }
+    }
 }
 
 angular.module('MainApp')

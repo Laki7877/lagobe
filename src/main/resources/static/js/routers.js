@@ -19,6 +19,10 @@ function mainConfig($urlRouterProvider, $stateProvider, $locationProvider){
     $urlRouterProvider.otherwise("/");
 
     $stateProvider
+        .state("boilerplate", {
+            url: "/",
+            templateUrl: "templates/boilerplate.html"
+        })
         .state("main", {
             url: "/",
             templateUrl: "templates/main.html",
@@ -50,8 +54,8 @@ function mainConfig($urlRouterProvider, $stateProvider, $locationProvider){
         .state("privacy", {
             url: "/privacy",
             templateUrl: "templates/privacy.html",
-            controller: "UserController",
-            controllerAs: "user",
+//            controller: "UserController",
+//            controllerAs: "user",
             data: {
                 css: "assets/css/privacy.css"
             }

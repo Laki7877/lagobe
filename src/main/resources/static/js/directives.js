@@ -399,7 +399,7 @@ function stepTab() {
     };
 }
 
-function signOnBehalfOf(){
+function signOnBehalfOf() {
     return {
         restrict: 'A',
         link: function (scope, elem, attrs) {
@@ -407,6 +407,60 @@ function signOnBehalfOf(){
                 scope.user.signOnbehalfOfSwitch = attrs.value;
                 scope.$apply();
             });
+        }
+    };
+}
+
+function storeIndividualSwitchContactSameRegister() {
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            switchContactSameRegister();
+
+            elem.bind('click', function() {
+                switchContactSameRegister();
+            });
+
+            function switchContactSameRegister() {
+                let inputs = $('#storeIndividualContactForm .form-control')
+                let isContactSameRegister = scope.user.signupInfo.store.individual.isContactSameRegister;
+                if(isContactSameRegister) {
+                    inputs.attr('readonly', 'readonly');
+
+                    scope.user.updateStoreIndividualContactValues();
+                    scope.$apply();
+                }
+                else {
+                    inputs.removeAttr('readonly');
+                }
+            }
+        }
+    };
+}
+
+function addressSwitchDocumentdropSamePickup() {
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            switchDocumentdropSamePickup();
+
+            elem.bind('click', function() {
+                switchDocumentdropSamePickup();
+            });
+
+            function switchDocumentdropSamePickup() {console.log("s");
+                let inputs = $('#addressDocumentDropForm .form-control')
+                let isDocumentdropSamePickup = scope.user.signupInfo.address.isDocumentDropSamePickup;
+                if(isDocumentdropSamePickup) {
+                    inputs.attr('readonly', 'readonly');
+
+                    scope.user.updateAddressDocumentDropValues();
+                    scope.$apply();
+                }
+                else {
+                    inputs.removeAttr('readonly');
+                }
+            }
         }
     };
 }
@@ -464,4 +518,6 @@ function signOnBehalfOf(){
 angular.module('User')
 .directive('signupPage', signupPage)
 .directive('stepTab', stepTab)
-.directive('signOnBehalfOf', signOnBehalfOf);
+.directive('signOnBehalfOf', signOnBehalfOf)
+.directive('storeIndividualSwitchContactSameRegister', storeIndividualSwitchContactSameRegister)
+.directive('addressSwitchDocumentdropSamePickup', addressSwitchDocumentdropSamePickup);
