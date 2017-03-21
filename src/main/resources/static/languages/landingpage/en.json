@@ -12,6 +12,8 @@
     "remember": "Remember",
     "agreement": "By Signing Up to Sell you are agreeing to these Terms & Conditions.",
     "view-contract": "View Seller Contract Here",
+    "signupsuccess": "Thank You",
+    "signupfail": "Cannot register, please contact admin",
     "main": {
         "why": {
             "heading": "WHY LAGOBE",

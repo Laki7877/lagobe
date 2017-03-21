@@ -34,10 +34,11 @@ class ParentController {
         }
         this.loadLabel(page, languageNew);
     }
+
 }
 
 class MainController extends ParentController {
-	constructor(mainService, $window, $uibModal) {
+	constructor(mainService, $window, $uibModal, $location) {
 		"ngInject";
 		super();
 		//this._userService = userService;
@@ -45,10 +46,10 @@ class MainController extends ParentController {
 		this._mainService = mainService;
 		this._$window = $window;
 		this._$uibModal = $uibModal;
-
-		
+		this._$location = $location;
 
 		this.loadLabel('landingpage');
+		this.form = {};
 	}
 
 	viewContract() {
@@ -71,6 +72,21 @@ class MainController extends ParentController {
 					this.user.password = "";
 				}
 		);
+	}
+
+	signUp() {
+    	console.log(this.form);
+    	this._mainService.signUp(this.form)
+    		.then(
+    			(data) => {
+		    		this.form = {};
+		    		//this._$location.path( "/signup" );
+		    		alert(this.label.signupsuccess);
+    			},
+    			(error) => {
+    				alert(error.message);
+    			}
+    		);
 	}
 
 	
