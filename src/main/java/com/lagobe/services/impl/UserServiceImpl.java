@@ -29,19 +29,33 @@ public class UserServiceImpl implements UserService {
 		if(StringUtils.isNullOrEmpty(user.getFirstName())){
 			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.empty.firstname");
 		}
+		if(user.getFirstName().length() > 100){
+			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.exceed.firstname");
+		}
 		if(StringUtils.isNullOrEmpty(user.getLastName())){
 			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.empty.lastname");
+		}
+		if(user.getLastName().length() > 100){
+			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.exceed.lastname");
 		}
 		if(StringUtils.isNullOrEmpty(user.getEmail())) {
 			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.empty.email");
 		}
+		if(user.getEmail().length() > 100){
+			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.exceed.email");
+		}
 		if(userDao.countByEmail(user.getEmail()) > 0){
 			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.duplicate.email");
+		}
+		if(user.getPhone().length() > 20){
+			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.exceed.phone");
 		}
 		if(StringUtils.isNullOrEmpty(user.getPassword())){
 			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.empty.password");
 		}
-		
+		if(user.getPassword().length() > 32){
+			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.exceed.password");
+		}
 		
 		user.setPassword(encryptionUtil.hashPassword(user.getPassword()));
 		user = userDao.save(user);

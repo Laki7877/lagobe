@@ -32,7 +32,7 @@ public class User extends AbstractModel implements Serializable {
 	@Column(name="password",length=255)
 	private String password;
 	
-	@Column(name="phone",length=256)
+	@Column(name="phone",length=20)
 	private String phone;
 
 

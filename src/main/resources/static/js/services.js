@@ -9,11 +9,14 @@ function mainService(PAGE, $q, $window, $http){
     
     return {
         signin,
+        signUp,
         create,
         update,
         isLoggedIn,
         getLabel
     };
+    
+    
     
     function signin(username, password){
         let deferred = $q.defer();
@@ -42,6 +45,19 @@ function mainService(PAGE, $q, $window, $http){
 //            }
 //        );
         return deferred.promise;
+    }
+    
+    function signUp(user) {
+    	let deferred = $q.defer();
+    	$http.put('/user',user,[]).then(
+    			(respond) => {
+		    		deferred.resolve(respond.data);
+    			},
+    			(reason) => {
+    				deferred.reject(reason.data);
+    			}
+    		);
+    	return deferred.promise;
     }
     
     function create() {
