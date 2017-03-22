@@ -15,35 +15,19 @@ function mainService(PAGE, $q, $window, $http){
         isLoggedIn,
         getLabel
     };
-    
-
 
     function signin(username, password){
         let deferred = $q.defer();
-                                        
-        $window.localStorage.userInfo = {
-            "email": "string",
-            "firstName": "string",
-            "lastName": "string",
-            "password": "string",
-            "userId": 0
-        };
-                                        
-        deferred.resolve();
-//        this._$http.post(this._MainAppConstant.apiPath+'/authenticate', { username, password }).then(
-//            (respond) => {
-//                this.localStorage.token = respond.data.token;
-//                this.localStorage.isLoggedOut = "0";
-//                
-//                deferred.resolve();
-//            },
-//            (reason) => {
-//                delete this.localStorage.token;
-//                delete this.localStorage.isLoggedOut;
-//                
-//                deferred.reject(reason.data);
-//            }
-//        );
+        $http.post('/login', { username, password }).then(
+            (respond) => {
+                $window.localStorage.userInfo = respond.data;
+
+                deferred.resolve(respond.data);
+            },
+            (reason) => {
+                deferred.reject(reason.data);
+            }
+        );
         return deferred.promise;
     }
     
