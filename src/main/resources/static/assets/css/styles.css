@@ -1291,6 +1291,9 @@ footer .footer-item ul li a:hover {
 .btn.btn-default:hover {
   color: #336799;
 }
+form .form-control {
+  color: black;
+}
 form .form-control:focus {
   border-color: #000080;
   color: #999999;

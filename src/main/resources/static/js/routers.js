@@ -19,10 +19,10 @@ function mainConfig($urlRouterProvider, $stateProvider, $locationProvider){
     $urlRouterProvider.otherwise("/");
 
     $stateProvider
-        .state("boilerplate", {
-            url: "/",
-            templateUrl: "templates/boilerplate.html"
-        })
+//        .state("boilerplate", {
+//            url: "/",
+//            templateUrl: "templates/boilerplate.html"
+//        })
         .state("main", {
             url: "/",
             templateUrl: "templates/main.html",
