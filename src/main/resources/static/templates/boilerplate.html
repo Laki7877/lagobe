@@ -110,18 +110,18 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="signupPane">
-                                <form id="signupForm" action="#" method="post" class="form" role="form">
+                                <form id="signupForm" ng-submit="main.signUp()" class="form" role="form">
                                     <div class="row">
                                         <div class="col-xs-6 col-md-6" style="padding-right: 5px;">
-                                            <input class="form-control" name="firstname" placeholder="{{main.label.firstname}}" type="text" required />
+                                            <input class="form-control" name="firstname" ng-model="main.form.firstName" maxlength="100" placeholder="{{main.label.firstname}}" type="text" required />
                                         </div>
                                         <div class="col-xs-6 col-md-6" style="padding-left: 5px;">
-                                            <input class="form-control" name="lastname" placeholder="{{main.label.lastname}}" type="text" required />
+                                            <input class="form-control" name="lastname" ng-model="main.form.lastName" maxlength="100" placeholder="{{main.label.lastname}}" type="text" required />
                                         </div>
                                     </div>
-                                    <input class="form-control" name="email" placeholder="{{main.label.email}}" type="email" />
-                                    <input class="form-control" name="phone" placeholder="{{main.label.phone}}" type="text" />
-                                    <input class="form-control" name="password" placeholder="{{main.label.password}}" type="password" />
+                                    <input class="form-control" name="phone" ng-model="main.form.phone" maxlength="100" placeholder="{{main.label.phone}}" type="text" />
+                                    <input class="form-control" name="email" ng-model="main.form.email" maxlength="100" placeholder="{{main.label.email}}" type="email" />
+                                    <input class="form-control" name="password" ng-model="main.form.password" maxlength="32" placeholder="{{main.label.password}}" type="password" />
                                     <br />
                                     <button class="btn btn-lg btn-primary btn-block" type="submit">{{main.label.signup}}</button>
                                     <br />
@@ -153,7 +153,7 @@
                                     </div>
                                     <br />
                                     <button class="btn btn-lg btn-primary btn-block" type="submit">{{main.label.signin}}</button>
-                                    <!--                                            <a href="/forgot/" class="btn btn-default btn-block">Help to login</a>-->
+<!--                                    <a href="/forgot/" class="btn btn-default btn-block">Help to login</a>-->
                                 </form>
                             </div>
                         </div>
@@ -194,7 +194,7 @@
                         <div class="footer-item">
 <!--                            <h3>{{main.label['footer']['lagobe']['title']}}</h3>-->
                             <ul>
-                                <li ng-repeat="item in main.label['footer']['lagobe']['items']"><a ng-href="{{item.href}}">{{item.text}}</a></li>
+                                <li ng-repeat="item in main.label['footer']['lagobe']['items']"><a ng-href="{{item.href}}" target="_blank">{{item.text}}</a></li>
                             </ul>
                         </div>
                     </div>
