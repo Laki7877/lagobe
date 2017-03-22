@@ -82,10 +82,13 @@
     "footer": {
         "lagobe": {
             "title": "Lagobe",
-            "items": [{
-                "href": "/privacy",
-                "text": "Privacy Policy"
-            }]
+            "items": [
+                "About Us",
+                "Join Us",
+                "For Press",
+                "Blog",
+                "Privacy Policy"
+            ]
         },
         "sellers": {
             "title": "For Sellers",

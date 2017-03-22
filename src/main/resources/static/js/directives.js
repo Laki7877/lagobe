@@ -236,7 +236,16 @@ function mainPage() {
     };
 }
 
-function scrollVisible(){
+function embedPdf() {
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            $(elem).gdocsViewer({ width: "100%", height: "100%" });
+        }
+    };
+}
+
+function scrollVisible() {
     "ngInject";
 
     return {
@@ -366,6 +375,7 @@ function reviewsCarousel($timeout) {
 
 angular.module('MainApp')
 .directive('mainPage', mainPage)
+.directive('embedPdf', embedPdf)
 .directive('scrollVisible', scrollVisible)
 .directive('registerMenu', registerMenu)
 .directive('registerTab', registerTab)

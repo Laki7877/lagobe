@@ -863,6 +863,9 @@ form textarea.form-control {
     border-radius: 5em;
   }
 }
+.gdocsviewer {
+  height: 100%;
+}
 .pre-loader {
   position: fixed;
   width: 100%;

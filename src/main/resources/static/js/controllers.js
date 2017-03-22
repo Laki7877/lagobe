@@ -53,8 +53,8 @@ class MainController extends ParentController {
 	}
 
 	viewContract() {
-		this._$uibModal.open({
-			template: '<iframe src="assets/docs/Lagobe_MPA_2017_Digital.pdf" width="100%" height="100%"></iframe>',
+        this._$uibModal.open({
+			template: '<a embed-pdf href="http://sc.lagobe.com/assets/docs/Lagobe_MPA_2017_Digital.pdf" class="embed"></a>',
 			size: 'lg',
 			backdrop: true,
 			windowTopClass: 'modal-contract'

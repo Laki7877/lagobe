@@ -19,22 +19,25 @@ function mainConfig($urlRouterProvider, $stateProvider, $locationProvider){
     $urlRouterProvider.otherwise("/");
 
     $stateProvider
-//        .state("boilerplate", {
-//            url: "/",
-//            templateUrl: "templates/boilerplate.html"
-//        })
-        .state("main", {
+        .state("boilerplate", {
+            templateUrl: "templates/boilerplate.html",
+            controller: "MainController",
+            controllerAs: "main",
+        })
+        .state("boilerplate.main", {
             url: "/",
             templateUrl: "templates/main.html",
             controller: "MainController",
             controllerAs: "main",
         })
-
-        .state("test", {
-            url: "/test",
-            templateUrl: "templates/test.html",
-            controller: "MainController",
-            controllerAs: "main",
+        .state("boilerplate.privacy", {
+            url: "/privacy",
+            templateUrl: "templates/privacy.html",
+//            controller: "UserController",
+//            controllerAs: "user",
+            data: {
+                css: "assets/css/privacy.css"
+            }
         })
 //        .state("dashboard", {
 //            url: "/",
@@ -49,15 +52,6 @@ function mainConfig($urlRouterProvider, $stateProvider, $locationProvider){
             controllerAs: "user",
             data: {
                 css: "assets/css/signup.css"
-            }
-        })
-        .state("privacy", {
-            url: "/privacy",
-            templateUrl: "templates/privacy.html",
-//            controller: "UserController",
-//            controllerAs: "user",
-            data: {
-                css: "assets/css/privacy.css"
             }
         });
 }

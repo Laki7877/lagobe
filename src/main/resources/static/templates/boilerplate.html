@@ -186,6 +186,38 @@
     </header>
     <div class="wrapper">
         <div ui-view></div>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="footer-item">
+<!--                            <h3>{{main.label['footer']['lagobe']['title']}}</h3>-->
+                            <ul>
+                                <li ng-repeat="item in main.label['footer']['lagobe']['items']"><a ng-href="{{item.href}}">{{item.text}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="footer-item">
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['line']['field']}}: </span>{{main.label['footer']['contact-us']['line']['value']}}</p>
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['email']['field']}}: </span>{{main.label['footer']['contact-us']['email']['value']}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="footer-item">
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['call']['field']}}: </span>{{main.label['footer']['contact-us']['call']['value']['tel']}}
+                                <br />
+                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['mon-fri']}}
+                                <br />
+                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['sat-sun']}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+<!--
         <footer>
             <div class="container">
                 <div class="row">
@@ -193,7 +225,7 @@
                         <div class="footer-item">
                             <h3>{{main.label['footer']['lagobe']['title']}}</h3>
                             <ul>
-                                <li ng-repeat="text in main.label['footer']['lagobe']['items']"><a href="#">{{text}}</a></li>
+                                <li ng-repeat="item in main.label['footer']['lagobe']['items']"><a ng-href="{{item.href}}">{{item.text}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -216,55 +248,11 @@
                                 <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['sat-sun']}}
                             </p>
                             <p><span class="contactus-field">{{main.label['footer']['contact-us']['email']['field']}}: </span>{{main.label['footer']['contact-us']['email']['value']}}</p>
-
-<!--                            <img ng-src="{{main.label['footer']['contact-us']['qr-code']}}" class="qr-code img-responsive" alt="">-->
                         </div>
                     </div>
-
-
-<!--
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="footer-item">
-                            <h3>{{main.label['footer']['lagobe']['title']}}</h3>
-                            <ul>
-                                <li ng-repeat="text in main.label['footer']['lagobe']['items']"><a href="#">{{text}}</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="footer-item">
-                            <h3>{{main.label['footer']['sellers']['title']}}</h3>
-                            <ul>
-                                <li ng-repeat="text in main.label['footer']['sellers']['items']"><a href="#">{{text}}</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="footer-item">
-                            <h3>{{main.label['footer']['shoppers']['title']}}</h3>
-                            <ul>
-                                <li ng-repeat="text in main.label['footer']['shoppers']['items']"><a href="#">{{text}}</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="footer-item">
-                            <h4>{{main.label['footer']['contact-us']['title']}}</h4>
-                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['line']['field']}}: </span>{{main.label['footer']['contact-us']['line']['value']}}</p>
-                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['call']['field']}}: </span>{{main.label['footer']['contact-us']['call']['value']['tel']}}
-                                <br />
-                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['mon-fri']}}
-                                <br />
-                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['sat-sun']}}
-                            </p>
-                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['email']['field']}}: </span>{{main.label['footer']['contact-us']['email']['value']}}</p>
-
-                            <img ng-src="{{main.label['footer']['contact-us']['qr-code']}}" class="qr-code img-responsive" alt="">
-                        </div>
-                    </div>
--->
                 </div>
             </div>
         </footer>
+-->
     </div>
 </main-page>

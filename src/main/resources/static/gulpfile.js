@@ -41,6 +41,10 @@ gulp.task('less', function () {
     gulp.src('./assets/less/signup.less')
         .pipe(less())
         .pipe(gulp.dest('./assets/css'));
+
+    gulp.src('./assets/less/privacy.less')
+        .pipe(less())
+        .pipe(gulp.dest('./assets/css'));
 });
 
 gulp.task('default', ['less', 'browserify'], function () {

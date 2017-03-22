@@ -40,92 +40,93 @@ Another
 •    store email
 
   
-  
-  
-  
-                    <div id="login-overlay" class="modal-dialog">
-                        <div class="modal-content">
-                            <!--
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title" id="myModalLabel">Login to site.com</h4>
-                            </div>
-    -->
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <div class="well">
-                                            <form id="loginForm" method="post" ng-submit="main.signin()" novalidate>
-                                                <div class="form-group">
-                                                    <label for="username" class="control-label">Username</label>
-                                                    <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com" ng-model="main.user.username">
-                                                    <span class="help-block"></span>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="password" class="control-label">Password</label>
-                                                    <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password" placeholder="Password" ng-model="main.user.password">
-                                                    <span class="help-block"></span>
-                                                </div>
-                                                <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" name="remember" id="remember"> Remember login
-                                                    </label>
-                                                </div>
-                                                <button type="submit" class="btn btn-success btn-block">Login</button>
-                                                <!--                                            <a href="/forgot/" class="btn btn-default btn-block">Help to login</a>-->
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <!--
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 well well-sm">
-    -->
-                                        <legend>Sign up</legend>
-                                        <form action="#" method="post" class="form" role="form">
-                                            <div class="row">
-                                                <div class="col-xs-6 col-md-6">
-                                                    <input class="form-control" name="firstname" placeholder="First Name" type="text" required />
-                                                </div>
-                                                <div class="col-xs-6 col-md-6">
-                                                    <input class="form-control" name="lastname" placeholder="Last Name" type="text" required />
-                                                </div>
-                                            </div>
-                                            <input class="form-control" name="email" placeholder="Email" type="email" />
-                                            <input class="form-control" name="phone" placeholder="Phone" type="text" />
-                                            <input class="form-control" name="password" placeholder="Password" type="password" />
-                                            <br />
-                                            <button class="btn btn-lg btn-primary btn-block" type="submit">
-                                                Sign up</button>
-                                            <br />
-                                            <div style="display: flex;">
-                                                <div style="margin-right: 10px;">
-                                                    <input type="checkbox" />
-                                                </div>
-                                                <div>By Signing Up to Sell you are agreeing to these Terms & Conditions.</div>
-                                            </div>
-                                            <div align="center"><a href="#" ng-click="main.viewContract()">View Seller Contract Here</a></div>
-                                        </form>
 
 
-                                        <!--
-                                        <p class="lead">Register now for <span class="text-success">FREE</span></p>
-                                        <ul class="list-unstyled" style="line-height: 2">
-                                            <li><span class="fa fa-check text-success"></span> See all your orders</li>
-                                            <li><span class="fa fa-check text-success"></span> Fast re-order</li>
-                                            <li><span class="fa fa-check text-success"></span> Save your favorites</li>
-                                            <li><span class="fa fa-check text-success"></span> Fast checkout</li>
-                                            <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
-                                            <li><a href="/read-more/"><u>Read more</u></a></li>
-                                        </ul>
-                                        <p><a href="/new-customer/" class="btn btn-info btn-block">Yes please, register now!</a></p>
-    -->
-                                    </div>
-                                </div>
-                            </div>
+
+
+
+
+<!--
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="footer-item">
+                            <h3>{{main.label['footer']['lagobe']['title']}}</h3>
+                            <ul>
+                                <li ng-repeat="text in main.label['footer']['lagobe']['items']"><a href="#">{{text}}</a></li>
+                            </ul>
                         </div>
                     </div>
-  
-  
-  
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="footer-item">
+                            <h3>{{main.label['footer']['sellers']['title']}}</h3>
+                            <ul>
+                                <li ng-repeat="text in main.label['footer']['sellers']['items']"><a href="#">{{text}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="footer-item">
+                            <h4>{{main.label['footer']['contact-us']['title']}}</h4>
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['line']['field']}}: </span>{{main.label['footer']['contact-us']['line']['value']}}</p>
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['call']['field']}}: </span>{{main.label['footer']['contact-us']['call']['value']['tel']}}
+                                <br />
+                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['mon-fri']}}
+                                <br />
+                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['sat-sun']}}
+                            </p>
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['email']['field']}}: </span>{{main.label['footer']['contact-us']['email']['value']}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+-->
+<!--
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="footer-item">
+                            <h3>{{main.label['footer']['lagobe']['title']}}</h3>
+                            <ul>
+                                <li ng-repeat="text in main.label['footer']['lagobe']['items']"><a href="#">{{text}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="footer-item">
+                            <h3>{{main.label['footer']['sellers']['title']}}</h3>
+                            <ul>
+                                <li ng-repeat="text in main.label['footer']['sellers']['items']"><a href="#">{{text}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="footer-item">
+                            <h3>{{main.label['footer']['shoppers']['title']}}</h3>
+                            <ul>
+                                <li ng-repeat="text in main.label['footer']['shoppers']['items']"><a href="#">{{text}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="footer-item">
+                            <h4>{{main.label['footer']['contact-us']['title']}}</h4>
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['line']['field']}}: </span>{{main.label['footer']['contact-us']['line']['value']}}</p>
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['call']['field']}}: </span>{{main.label['footer']['contact-us']['call']['value']['tel']}}
+                                <br />
+                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['mon-fri']}}
+                                <br />
+                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['sat-sun']}}
+                            </p>
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['email']['field']}}: </span>{{main.label['footer']['contact-us']['email']['value']}}</p>
+                            
+                            <img ng-src="{{main.label['footer']['contact-us']['qr-code']}}" class="qr-code img-responsive" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+-->
