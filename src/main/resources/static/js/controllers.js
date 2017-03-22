@@ -79,9 +79,9 @@ class MainController extends ParentController {
     	this._mainService.signUp(this.form)
     		.then(
     			(data) => {
+    				this._$window.localStorage.user = JSON.stringify(data);
 		    		this.form = {};
-		    		//this._$location.path( "/signup" );
-		    		alert(this.label.signupsuccess);
+		    		this._$location.path( '/signup');
     			},
     			(error) => {
     				alert(error.message);
@@ -93,10 +93,37 @@ class MainController extends ParentController {
 }
 
 class UserController{
-	constructor($scope) {
+	constructor($scope, $window, $location, userService) {
 		"ngInject";
-
+		
         this._$scope = $scope;
+        this._$window = $window;
+        this._$location = $location;
+        this._userService = userService;
+        
+        this._userService.getCompanies()
+        	.then(
+    			(data) => {
+    				this.companies = data;
+    			},
+    			(error) => {
+    				alert(error.message);
+    			}
+    		);
+        this._userService.getBanks().then(
+    			(data) => {
+    				this.banks = data;
+    			},
+    			(error) => {
+    				alert(error.message);
+    			}
+    		);
+        
+        if(!this._$window.localStorage.user){
+        	this._$location.path( '/');
+        }
+        
+        this._userStorage = JSON.parse(this._$window.localStorage.user);
 
         this.signOnbehalfOfSwitch = "individual";
 
@@ -182,6 +209,15 @@ class UserController{
                 promotionCode: ""
             }
         };
+        this.signupInfo.store.individual.register.firstName = this._userStorage.firstName;
+        this.signupInfo.store.individual.register.lastName = this._userStorage.lastName;
+        this.signupInfo.store.individual.register.phone = this._userStorage.phone;
+        this.signupInfo.store.individual.register.email = this._userStorage.email;
+        
+	}
+	
+	save() {
+		console.log(this.signupInfo.store.company.register.companyPrefix);
 	}
 
     updateStoreIndividualContactValues() {
@@ -199,6 +235,8 @@ class UserController{
             });
         }
     }
+    
+    
 }
 
 angular.module('MainApp')

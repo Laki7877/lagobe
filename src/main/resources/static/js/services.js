@@ -16,8 +16,7 @@ function mainService(PAGE, $q, $window, $http){
         getLabel
     };
     
-
-
+    
     function signin(username, password){
         let deferred = $q.defer();
                                         
@@ -95,12 +94,40 @@ function mainService(PAGE, $q, $window, $http){
     
 }
 
-function userService(){
+function userService($http,$q){
     "ngInject";
     
     return {
-        signin
+        signin,
+        getCompanies,
+        getBanks
     };
+    
+    function getBanks() {
+    	let deferred = $q.defer();
+    	$http.get('/staticdata/banks').then(
+    			(respond) => {
+		    		deferred.resolve(respond.data);
+    			},
+    			(reason) => {
+    				deferred.reject(reason.data);
+    			}
+    		);
+    	return deferred.promise;
+    }
+    
+    function getCompanies() {
+    	let deferred = $q.defer();
+    	$http.get('/staticdata/companies').then(
+    			(respond) => {
+		    		deferred.resolve(respond.data);
+    			},
+    			(reason) => {
+    				deferred.reject(reason.data);
+    			}
+    		);
+    	return deferred.promise;
+    }
     
     function signin(username, password){
         alert(username+" "+password);
@@ -111,4 +138,4 @@ angular.module('MainApp')
 .factory('mainService', mainService);
 
 angular.module('User')
-.factory('ีuserService', userService);
+.factory('userService', userService);

@@ -117,59 +117,9 @@
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อนิติบุคคล</label>
                                                 <div style="display: flex;">
-                                                    <select ng-model="user.signupInfo.store.company.register.companyPrefix" name="storeCompanyPrefix" class="form-control" style="width: 50%; margin-right: 4px;">
-                                                        <option value="">เลือกคำนำหน้า</option>
-                                                        <option value="บริษัท">บริษัท</option>
-                                                        <option value="บริษัทเงินทุน">บริษัทเงินทุน</option>
-                                                        <option value="บริษัทหลักทรัพย์">บริษัทหลักทรัพย์</option>
-                                                        <option value="บริษัทเงินทุนหลักทรัพย์">บริษัทเงินทุนหลักทรัพย์</option>
-                                                        <option value="บริษัทมหาชนจำกัด">บริษัทมหาชนจำกัด</option>
-                                                        <option value="บริษัทจัดหางาน">บริษัทจัดหางาน</option>
-                                                        <option value="บรรษัท">บรรษัท</option>
-                                                        <option value="ห้างหุ้นส่วนจำกัด">ห้างหุ้นส่วนจำกัด</option>
-                                                        <option value="ห้างหุ้นส่วนสามัญนิติบุคคล">ห้างหุ้นส่วนสามัญนิติบุคคล</option>
-                                                        <option value="กิจการร่วมค้า">กิจการร่วมค้า</option>
-                                                        <option value="มูลนิธิ">มูลนิธิ</option>
-                                                        <option value="สมาคม">สมาคม</option>
-                                                        <option value="สำนักงานผู้แทน">สำนักงานผู้แทน</option>
-                                                        <option value="นิติบุคคลอาคารชุด">นิติบุคคลอาคารชุด</option>
-                                                        <option value="คลีนิค">คลีนิค</option>
-                                                        <option value="ภัตตาคาร">ภัตตาคาร</option>
-                                                        <option value="ร้าน">ร้าน</option>
-                                                        <option value="โรงงาน">โรงงาน</option>
-                                                        <option value="โรงพยาบาล">โรงพยาบาล</option>
-                                                        <option value="โรงพยาบาลสัตว์">โรงพยาบาลสัตว์</option>
-                                                        <option value="โรงพิมพ์">โรงพิมพ์</option>
-                                                        <option value="โรงไฟฟ้า">โรงไฟฟ้า</option>
-                                                        <option value="โรงภาพยนตร์">โรงภาพยนตร์</option>
-                                                        <option value="โรงรับจำนำ">โรงรับจำนำ</option>
-                                                        <option value="โรงแรม">โรงแรม</option>
-                                                        <option value="โรงเลื่อย">โรงเลื่อย</option>
-                                                        <option value="โรงเลื่อยจักร">โรงเลื่อยจักร</option>
-                                                        <option value="โรงสี">โรงสี</option>
-                                                        <option value="วงดนตรี">วงดนตรี</option>
-                                                        <option value="สถานพยาบาล">สถานพยาบาล</option>
-                                                        <option value="สำนักงาน">สำนักงาน</option>
-                                                        <option value="ห้างขายทอง">ห้างขายทอง</option>
-                                                        <option value="ห้างขายยา">ห้างขายยา</option>
-                                                        <option value="ห้องเสริมสวย">ห้องเสริมสวย</option>
-                                                        <option value="ห้องอาหาร">ห้องอาหาร</option>
-                                                        <option value="กอง">กอง</option>
-                                                        <option value="กองทุน">กองทุน</option>
-                                                        <option value="กองทุนรวม">กองทุนรวม</option>
-                                                        <option value="กองทุนสำรองเลี้ยงชีพ">กองทุนสำรองเลี้ยงชีพ</option>
-                                                        <option value="คณะ">คณะ</option>
-                                                        <option value="คณะแพทย์">คณะแพทย์</option>
-                                                        <option value="ชมรม">ชมรม</option>
-                                                        <option value="ที่ทำการ">ที่ทำการ</option>
-                                                        <option value="มหาวิทยาลัย">มหาวิทยาลัย</option>
-                                                        <option value="โรงเรียน">โรงเรียน</option>
-                                                        <option value="วิทยาลัย">วิทยาลัย</option>
-                                                        <option value="ศูนย์">ศูนย์</option>
-                                                        <option value="สถาบัน">สถาบัน</option>
-                                                        <option value="สมาพันธ์">สมาพันธ์</option>
-                                                        <option value="สภาตำบล">สภาตำบล</option>
-                                                    </select>
+                                                	<select ng-options="company as company.companyName for company in user.companies track by company.companyId" ng-model="user.signupInfo.store.company.register.companyPrefix"  name="storeCompanyPrefix" class="form-control" style="width: 50%; margin-right: 4px;">
+                                                		<option value="">เลือกคำนำหน้า</option>
+                                                	</select>
                                                     <input ng-model="user.signupInfo.store.company.register.companyName" name="storeCompanyName" type="text" placeholder="ชื่อนิติบุคคล" class="form-control" style="width: 50%; margin-left: 4px;" required />
                                                 </div>
                                             </div>
@@ -274,7 +224,7 @@
                         <div class = "row">
                             <div class="col-md-5 col-md-push-1">
                                 <div align="center" style="display: flex;">
-                                    <button class="btn btn-lg btn-primary btn-save">บันทึก</button>
+                                    <button class="btn btn-lg btn-primary btn-save" ng-click="user.save()">บันทึก</button>
                                     <button class="btn btn-lg btn-primary btn-cancel">ยกเลิก</button>
                                 </div>
                             </div>
@@ -288,47 +238,8 @@
                                 <h1>ข้อมูลทางการเงิน</h1>
                                 <div class="form-group">
                                     <label class="control-label">ชื่อธนาคาร</label>
-                                    <select ng-model="user.signupInfo.bank.bankName" class="form-control">
-                                        <option value="">เลือกธนาคาร</option>
-                                        <option value="001">ธนาคารแห่งประเทศไทย</option>
-                                        <option value="002">ธ. กรุงเทพ จำกัด (มหาชน)</option>
-                                        <option value="004">ธ. กสิกรไทย จำกัด (มหาชน)</option>
-                                        <option value="005">ธ. เดอะรอยัลแบงก์อ๊อฟสกอตแลนด์ เอ็น.วี.</option>
-                                        <option value="006">ธ. กรุงไทย จำกัด (มหาชน)</option>
-                                        <option value="008">ธ. เจพีมอร์แกน เชส</option>
-                                        <option value="009">ธ. โอเวอร์ซี-ไชนีสแบงกิ้งคอร์ปอเรชั่น จำกัด</option>
-                                        <option value="010">ธ. แห่งโตเกียว-มิตซูบิชิ ยูเอฟเจ จำกัด</option>
-                                        <option value="011">ธ. ทหารไทย จำกัด (มหาชน)</option>
-                                        <option value="014">ธ. ไทยพาณิชย์ จำกัด (มหาชน)</option>
-                                        <option value="015">ธ. นครหลวงไทย จำกัด (มหาชน)</option>
-                                        <option value="017">ธ. ซิตี้แบงก์</option>
-                                        <option value="018">ธ. ซูมิโตโม มิตซุย แบงกิ้ง คอร์ปอเรชั่น</option>
-                                        <option value="020">ธ. สแตนดาร์ดชาร์เตอร์ด (ไทย) จำกัด (มหาชน)</option>
-                                        <option value="022">ธ. ซีไอเอ็มบี ไทย จำกัด (มหาชน)</option>
-                                        <option value="023">ธ. อาร์ เอช บี จำกัด</option>
-                                        <option value="024">ธ. ยูโอบี จำกัด (มหาชน)</option>
-                                        <option value="025">ธ. กรุงศรีอยุธยา จำกัด (มหาชน)</option>
-                                        <option value="026">ธ. เมกะ สากลพาณิชย์ จำกัด (มหาชน)</option>
-                                        <option value="027">ธ. แห่งอเมริกาเนชั่นแนลแอสโซซิเอชั่น</option>
-                                        <option value="028">ธ. เครดิต อะกริกอล คอร์ปอเรทแอนด์อินเวสเมนท์แบงก์</option>
-                                        <option value="029">ธ. อินเดียนโอเวอร์ซีส์</option>
-                                        <option value="030">ธ. ออมสิน</option>
-                                        <option value="031">ธ. ฮ่องกงและเซี่ยงไฮ้แบงกิ้งคอร์ปอเรชั่น จำกัด</option>
-                                        <option value="032">ธ. ดอยซ์แบงก์</option>
-                                        <option value="033">ธ. อาคารสงเคราะห์</option>
-                                        <option value="034">ธ. เพื่อการเกษตรและสหกรณ์การเกษตร</option>
-                                        <option value="035">ธ. เพื่อการส่งออกและนำเข้าแห่งประเทศไทย</option>
-                                        <option value="039">ธ. มิซูโฮ คอร์ปอเรต จำกัด</option>
-                                        <option value="045">ธ. บีเอ็นพี พารีบาส์</option>
-                                        <option value="052">ธ. แห่งประเทศจีน จำกัด</option>
-                                        <option value="065">ธ. ธนชาต จำกัด (มหาชน)</option>
-                                        <option value="066">ธ. อิสลามแห่งประเทศไทย</option>
-                                        <option value="067">ธ. ทิสโก้ จำกัด (มหาชน)</option>
-                                        <option value="069">ธ. เกียรตินาคิน จำกัด (มหาชน)</option>
-                                        <option value="070">ธ. ไอซีบีซี (ไทย) จำกัด (มหาชน)</option>
-                                        <option value="071">ธ. ไทยเครดิต เพื่อรายย่อย จำกัด (มหาชน)</option>
-                                        <option value="073">ธ. แลนด์ แอนด์ เฮ้าส์ จำกัด (มหาชน)</option>
-                                        <option value="098">ธ. พัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย</option>
+                                    <select ng-options="bank as bank.bankName for bank in user.banks track by bank.bankId" ng-model="user.signupInfo.bank.bankName" class="form-control">
+                                      	<option value="">เลือกธนาคาร</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
