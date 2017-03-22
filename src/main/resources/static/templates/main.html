@@ -9,7 +9,7 @@
             <div ng-repeat="item in main.label['main']['why']['items']" class="col-md-4 col-sm-4 col-xs-12">
                 <div scroll-visible class="why-item scrollpoint sp-effect5">
 <!--                            <i class="fa {{item['fa-icon']}} fa-5x"></i>-->
-                    <img ng-src="{{item['icon']}}" />
+                    <img ng-src="{{item['icon']}}" class="img-responsive" />
                     <h3>{{item['heading']}}</h3>
                     <p>{{item['content']}}</p>
                 </div>
@@ -360,6 +360,8 @@
         </div>
     </section>
 -->
-<section id="logo-with-model">
-    <img src="assets/img/freeze/Lagobe_SC_logo.jpg" class="img-responsive" alt="">
+<section id="logoWithModel">
+    <div align="center" class="logo-with-model">
+        <img src="assets/img/freeze/Lagobe_SC_logo.jpg" class="img-responsive" alt="">
+    </div>
 </section>

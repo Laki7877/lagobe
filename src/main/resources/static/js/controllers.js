@@ -62,17 +62,17 @@ class MainController extends ParentController {
 	}
 
 	signin() {
-		this._mainService.signin(this.user.username, this.user.password)
-		.then(
-				() => {
-					this._$window.location.reload();
-				},
-				(data) => {
-					//this.error.signin = true;
-					this.user.password = "";
-				}
-		);
-	}
+        this._mainService.signin(this.user.username, this.user.password)
+            .then(
+                (data) => {
+                    this._$window.location.href = "/signup";
+                },
+                (error) => {
+                    //this.error.signin = true;
+                    this.user.password = "";
+                }
+            );
+    }
 
 	signUp() {
     	console.log(this.form);
@@ -204,9 +204,6 @@ class UserController{
                     tumbon: "",
                     other: ""
                 }
-            },
-            saleDept: {
-                promotionCode: ""
             }
         };
         this.signupInfo.store.individual.register.firstName = this._userStorage.firstName;
