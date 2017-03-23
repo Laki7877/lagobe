@@ -8,5 +8,7 @@ import com.lagobe.models.User;
 public interface UserService {
 	
 	public User addUser(User user) throws Exception;
+	public User updateUser(Long userId,User user) throws Exception;
+	public User authenthication(String email, String password) throws Exception;
 
 }

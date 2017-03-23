@@ -7,4 +7,5 @@ import com.lagobe.models.User;
 public interface UserDao extends CrudRepository<User, Long> {
 	
 	public Long countByEmail(String email);
+	public User findOneByEmail(String email);
 }

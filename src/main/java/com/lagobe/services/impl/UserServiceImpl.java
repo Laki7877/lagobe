@@ -62,4 +62,23 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
+	@Override
+	public User updateUser(Long userId, User user) throws Exception {
+		user.setUserId(userId);
+		return userDao.save(user);
+	}
+
+	@Override
+	public User authenthication(String email, String password) throws Exception {
+		User user =  userDao.findOneByEmail(email);
+		if(null == user){
+			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.not.found");
+		}
+		if(!encryptionUtil.checkPassword(password, user.getPassword())){
+			throw new ResponseException(HttpStatus.BAD_REQUEST,"error.user.invalid.password");
+		}
+		
+		return user;
+	}
+
 }

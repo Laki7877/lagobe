@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity(name="user") 
 public class User extends AbstractModel implements Serializable {
@@ -35,6 +36,9 @@ public class User extends AbstractModel implements Serializable {
 	@Column(name="phone",length=20)
 	private String phone;
 
+	@Column(name="shop")
+	@Lob
+	private String shop;
 
 	public Long getUserId() {
 		return userId;
@@ -95,5 +99,16 @@ public class User extends AbstractModel implements Serializable {
 		this.phone = phone;
 	}
 
+
+	public String getShop() {
+		return shop;
+	}
+
+
+	public void setShop(String shop) {
+		this.shop = shop;
+	}
+	
+	
 
 }
