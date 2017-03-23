@@ -62,14 +62,16 @@ class MainController extends ParentController {
 	}
 
 	signin() {
-        this._mainService.signin(this.user.username, this.user.password)
+        this._mainService.signin(this.user)
             .then(
                 (data) => {
-                    this._$window.location.href = "/signup";
+                	this._$window.localStorage.user = JSON.stringify(data);
+                	this._$location.path( '/signup');
                 },
                 (error) => {
                     //this.error.signin = true;
                     this.user.password = "";
+                    alert(error.message);
                 }
             );
     }

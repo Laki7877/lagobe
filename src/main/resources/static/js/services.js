@@ -16,12 +16,11 @@ function mainService(PAGE, CONFIG, $q, $window, $http){
         getLabel
     };
     
-    function signin(username, password){
+    
+    function signin(user){
         let deferred = $q.defer();
-        $http.post(`${CONFIG.PATH.APIS}/login`, { username, password }).then(
+        $http.post(`${CONFIG.PATH.APIS}/authenthication`, user).then(
             (respond) => {
-                $window.localStorage.userInfo = respond.data;
-
                 deferred.resolve(respond.data);
             },
             (reason) => {
