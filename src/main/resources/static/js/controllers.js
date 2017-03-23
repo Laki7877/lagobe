@@ -93,7 +93,7 @@ class MainController extends ParentController {
 }
 
 class UserController{
-	constructor($scope, $window, $location, $filter, $timeout, userService) {
+	constructor($scope, $window, $location, $uibModal, $filter, $timeout, userService) {
 		"ngInject";
 		
         this._$scope = $scope;
@@ -103,6 +103,16 @@ class UserController{
         this._$timeout = $timeout;
         this._userService = userService;
         
+        this.file = {
+            individual: {
+                citizenCard: null,
+                homeRegister: null
+            },
+            company: {
+                companyCertificate: null,
+                tradeRegister: null
+            }
+        };
         this.companies = [];
         this.banks = [];
         this.zipCodes = {
@@ -212,6 +222,13 @@ class UserController{
         };
         
         this.init();
+
+//        $uibModal.open({
+//            template: '<img src="/assets/img/freeze/Lagobe_Welcome_SC.jpg" class="img-responsive" alt="">',
+//			//size: 'lg',
+//			backdrop: true,
+//			//windowTopClass: 'modal-contract'
+//        });
 	}
 
     init() {
@@ -219,32 +236,32 @@ class UserController{
 //        	this._$location.path( '/');
 //        }
 //        else{
-            this._userService.getCompanies()
-                .then(
-                    (data) => {
-                        this.companies = data;
-                    },
-                    (error) => {
-                        alert(error.message);
-                    }
-                );
-            this._userService.getBanks()
-                .then(
-                    (data) => {
-                        this.banks = data;
-                    },
-                    (error) => {
-                        alert(error.message);
-                    }
-                );
+//            this._userService.getCompanies()
+//                .then(
+//                    (data) => {
+//                        this.companies = data;
+//                    },
+//                    (error) => {
+//                        alert(error.message);
+//                    }
+//                );
+//            this._userService.getBanks()
+//                .then(
+//                    (data) => {
+//                        this.banks = data;
+//                    },
+//                    (error) => {
+//                        alert(error.message);
+//                    }
+//                );
 
 //            let userStorage = JSON.parse(this._$window.localStorage.user);
 //            this.signupInfo.store.individual.register.firstName = userStorage.firstName;
 //            this.signupInfo.store.individual.register.lastName = userStorage.lastName;
 //            this.signupInfo.store.individual.register.phone = userStorage.phone;
 //            this.signupInfo.store.individual.register.email = userStorage.email;
-        }
-//    }
+//        }
+    }
 	
 	save() {
 		console.log(this.signupInfo.store.company.register.companyPrefix);
@@ -256,6 +273,22 @@ class UserController{
                 this.signupInfo.store.individual.contact[field] = this.signupInfo.store.individual.register[field];
             });
         }
+    }
+
+    uploadStoreDocument(businessType, documentName) {
+        this._userService.uploadFile(this.file[businessType][documentName])
+            .then(
+                (data) => {
+                    console.log(data);
+
+                    //this.companies = data;
+                },
+                (error) => {
+                    console.log(error);
+
+                    //alert(error.message);
+                }
+            );
     }
 
     updateAddressDocumentDropValues() {

@@ -84,6 +84,7 @@ function userService(CONFIG, $http,$q){
     
     return {
         signin,
+        uploadFile,
         getCompanies,
         getBanks,
         getZipCodes,
@@ -92,6 +93,42 @@ function userService(CONFIG, $http,$q){
         getDistrict
     };
     
+    function uploadFile(file) {
+        let fd = new FormData();
+        fd.append('file', file);
+
+        let deferred = $q.defer();
+
+//        $http({
+//            method: 'PUT',
+//            url: `${CONFIG.PATH.APIS}/resource`,
+//            data: fd,
+//            headers: {
+//                'Content-Type': undefined
+//            }
+//        }).then(
+//            (respond) => {
+//                deferred.resolve(respond.data);
+//            },
+//            (reason) => {
+//                deferred.reject(reason.data);
+//            }
+//        );
+
+    	$http.put(`${CONFIG.PATH.APIS}/resource`, JSON.stringify(fd), {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        }).then(
+            (respond) => {
+                deferred.resolve(respond.data);
+            },
+            (reason) => {
+                deferred.reject(reason.data);
+            }
+        );
+    	return deferred.promise;
+    }
+
     function getBanks() {
     	let deferred = $q.defer();
     	$http.get(`${CONFIG.PATH.APIS}/staticdata/banks`).then(
