@@ -7,6 +7,7 @@
 angular.module('MainApp', [
     'uiRouterStyles',
     'ui.bootstrap',
+    'ui.filters',
     'User'
 ]);
 

@@ -4,9 +4,10 @@ const PAGE = {
 
 const CONFIG = {
     PATH: {
-        APIS: "http://54.169.101.86"
+        APIS: "http://sc.lagobe.com"
     }
 }
 
 angular.module('MainApp')
-.constant('PAGE', PAGE);
+.constant('PAGE', PAGE)
+.constant('CONFIG', CONFIG);

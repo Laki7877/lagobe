@@ -190,28 +190,34 @@
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-4 col-xs-6">
-                        <div class="footer-item">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div align="center" class="footer-item">
+                            <div class="footer-details">
 <!--                            <h3>{{main.label['footer']['lagobe']['title']}}</h3>-->
-                            <ul>
-                                <li ng-repeat="item in main.label['footer']['lagobe']['items']"><a ng-href="{{item.href}}" target="_blank">{{item.text}}</a></li>
-                            </ul>
+                                <ul>
+                                    <li ng-repeat="item in main.label['footer']['lagobe']['items']"><a ng-href="{{item.href}}" target="_blank">{{item.text}}</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-6">
-                        <div class="footer-item">
-                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['line']['field']}}: </span>{{main.label['footer']['contact-us']['line']['value']}}</p>
-                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['email']['field']}}: </span>{{main.label['footer']['contact-us']['email']['value']}}</p>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div align="center" class="footer-item">
+                            <div class="footer-details">
+                                <p><span class="contactus-field">{{main.label['footer']['contact-us']['line']['field']}}: </span>{{main.label['footer']['contact-us']['line']['value']}}</p>
+                                <p><span class="contactus-field">{{main.label['footer']['contact-us']['email']['field']}}: </span>{{main.label['footer']['contact-us']['email']['value']}}</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-6">
-                        <div class="footer-item">
-                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['call']['field']}}: </span>{{main.label['footer']['contact-us']['call']['value']['tel']}}
-                                <br />
-                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['mon-fri']}}
-                                <br />
-                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['sat-sun']}}
-                            </p>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div align="center" class="footer-item">
+                            <div class="footer-details">
+                                <p><span class="contactus-field">{{main.label['footer']['contact-us']['call']['field']}}: </span>{{main.label['footer']['contact-us']['call']['value']['tel']}}
+                                    <br />
+                                    <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['mon-fri']}}
+                                    <br />
+                                    <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['sat-sun']}}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

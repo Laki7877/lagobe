@@ -283,24 +283,28 @@
                                     <div class="form-group">
                                         <label class="control-label">รหัสไปรษณีย์</label>
 
-                                        <input ng-model="user.signupInfo.address.pickup.zipCode" name="pickupZipCode" type="text" placeholder="รหัสไปรษณีย์" class="form-control" required />
+                                        <input ng-model="user.signupInfo.address.pickup.zipCode" name="pickupZipCode" type="text" placeholder="รหัสไปรษณีย์" class="form-control" ng-model-options="{ updateOn: 'change' }" ng-change="user.getProvinces('pickup'); user.updateAddressDocumentDropValues();" required />
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">จังหวัด</label>
-                                        <select ng-model="user.signupInfo.address.pickup.province" name="pickupProvince" class="form-control">
-                                            <option>เลือกจังหวัด</option>
+                                        <select ng-model="user.signupInfo.address.pickup.province" name="pickupProvince" class="form-control" ng-model-options="{ updateOn: 'change' }" ng-change="user.getAmphurs('pickup'); user.updateAddressDocumentDropValues();">
+                                            <option value="">เลือกจังหวัด</option>
+                                            <option ng-repeat="province in user.provinces.pickup | unique" value="{{province.id}}">{{province.name}}</option>
+<!--                                            <option ng-repeat="province in user.uniqueProvinces.pickup" value="{{province.id}}">{{province.name}}</option>-->
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">เขต / อำเภอ</label>
-                                        <select ng-model="user.signupInfo.address.pickup.amphur" name="pickupAmphur" class="form-control">
-                                            <option>เลือกเขต / อำเภอ</option>
+                                        <select ng-model="user.signupInfo.address.pickup.amphur" name="pickupAmphur" class="form-control" ng-model-options="{ updateOn: 'change' }" ng-change="user.getDistricts('pickup'); user.updateAddressDocumentDropValues();">
+                                            <option value="">เลือกเขต / อำเภอ</option>
+                                            <option ng-repeat="amphur in user.amphurs.pickup | unique: 'id'" value="{{amphur.id}}">{{amphur.name}}</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">แขวง / ตำบล</label>
-                                        <select ng-model="user.signupInfo.address.pickup.tumbon" name="pickupTumbon" class="form-control">
-                                            <option>เลือกแขวง / ตำบล</option>
+                                        <select ng-model="user.signupInfo.address.pickup.tumbon" name="pickupTumbon" class="form-control" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateAddressDocumentDropValues();">
+                                            <option value="">เลือกแขวง / ตำบล</option>
+                                            <option ng-repeat="district in user.districts.pickup | unique: 'id'" value="{{district.id}}">{{district.name}}</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -319,24 +323,27 @@
                                     <div class="form-group">
                                         <label class="control-label">รหัสไปรษณีย์</label>
 
-                                        <input ng-model="user.signupInfo.address.documentDrop.zipCode" name="documentDropZipCode" type="text" placeholder="รหัสไปรษณีย์" class="form-control" required />
+                                        <input ng-model="user.signupInfo.address.documentDrop.zipCode" name="documentDropZipCode" type="text" placeholder="รหัสไปรษณีย์" class="form-control" ng-model-options="{ updateOn: 'change' }" ng-change="user.getProvinces('documentDrop')" required />
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">จังหวัด</label>
-                                        <select ng-model="user.signupInfo.address.documentDrop.province" name="documentDropProvince" class="form-control">
-                                            <option>เลือกจังหวัด</option>
+                                        <select ng-model="user.signupInfo.address.documentDrop.province" name="documentDropProvince" class="form-control" ng-model-options="{ updateOn: 'change' }" ng-change="user.getAmphurs('documentDrop')">
+                                            <option value="">เลือกจังหวัด</option>
+                                            <option ng-repeat="province in user.provinces.documentDrop | unique: 'id'" value="{{province.id}}">{{province.name}}</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">เขต / อำเภอ</label>
-                                        <select ng-model="user.signupInfo.address.documentDrop.amphur" name="documentDropAmphur" class="form-control">
-                                            <option>เลือกเขต / อำเภอ</option>
+                                        <select ng-model="user.signupInfo.address.documentDrop.amphur" name="documentDropAmphur" class="form-control" ng-model-options="{ updateOn: 'change' }" ng-change="user.getDistricts('documentDrop')">
+                                            <option value="">เลือกเขต / อำเภอ</option>
+                                            <option ng-repeat="amphur in user.amphurs.documentDrop | unique: 'id'" value="{{amphur.id}}">{{amphur.name}}</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">แขวง / ตำบล</label>
                                         <select ng-model="user.signupInfo.address.documentDrop.tumbon" name="documentDropTumbon" class="form-control">
-                                            <option>เลือกแขวง / ตำบล</option>
+                                            <option value="">เลือกแขวง / ตำบล</option>
+                                            <option ng-repeat="district in user.districts.documentDrop | unique: 'id'" value="{{district.id}}">{{district.name}}</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

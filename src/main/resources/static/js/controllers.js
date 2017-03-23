@@ -93,40 +93,44 @@ class MainController extends ParentController {
 }
 
 class UserController{
-	constructor($scope, $window, $location, userService) {
+	constructor($scope, $window, $location, $filter, $timeout, userService) {
 		"ngInject";
 		
         this._$scope = $scope;
         this._$window = $window;
         this._$location = $location;
+        this._$filter = $filter;
+        this._$timeout = $timeout;
         this._userService = userService;
         
-        this._userService.getCompanies()
-        	.then(
-    			(data) => {
-    				this.companies = data;
-    			},
-    			(error) => {
-    				alert(error.message);
-    			}
-    		);
-        this._userService.getBanks().then(
-    			(data) => {
-    				this.banks = data;
-    			},
-    			(error) => {
-    				alert(error.message);
-    			}
-    		);
-        
-        if(!this._$window.localStorage.user){
-        	this._$location.path( '/');
-        }
-        
-        this._userStorage = JSON.parse(this._$window.localStorage.user);
+        this.companies = [];
+        this.banks = [];
+        this.zipCodes = {
+            pickup: [],
+            documentDrop: []
+        };
+        this.provinces = {
+            pickup: [],
+            documentDrop: []
+        };
+        this.amphurs = {
+            pickup: [],
+            documentDrop: []
+        };
+        this.districts = {
+            pickup: [],
+            documentDrop: []
+        };
+
+
+//        this.uniqueProvinces = {
+//            pickup: [],
+//            documentDrop: []
+//        };
+
+
 
         this.signOnbehalfOfSwitch = "individual";
-
         this.signupInfo = {
             store: {
                 storeName: "",
@@ -193,7 +197,7 @@ class UserController{
                     zipCode: "",
                     province: "",
                     amphur: "",
-                    tumbon: "",
+                    district: "",
                     other: ""
                 },
                 isDocumentDropSamePickup: false,
@@ -201,17 +205,46 @@ class UserController{
                     zipCode: "",
                     province: "",
                     amphur: "",
-                    tumbon: "",
+                    district: "",
                     other: ""
                 }
             }
         };
-        this.signupInfo.store.individual.register.firstName = this._userStorage.firstName;
-        this.signupInfo.store.individual.register.lastName = this._userStorage.lastName;
-        this.signupInfo.store.individual.register.phone = this._userStorage.phone;
-        this.signupInfo.store.individual.register.email = this._userStorage.email;
         
+        this.init();
 	}
+
+    init() {
+//        if(!this._$window.localStorage.user){
+//        	this._$location.path( '/');
+//        }
+//        else{
+            this._userService.getCompanies()
+                .then(
+                    (data) => {
+                        this.companies = data;
+                    },
+                    (error) => {
+                        alert(error.message);
+                    }
+                );
+            this._userService.getBanks()
+                .then(
+                    (data) => {
+                        this.banks = data;
+                    },
+                    (error) => {
+                        alert(error.message);
+                    }
+                );
+
+//            let userStorage = JSON.parse(this._$window.localStorage.user);
+//            this.signupInfo.store.individual.register.firstName = userStorage.firstName;
+//            this.signupInfo.store.individual.register.lastName = userStorage.lastName;
+//            this.signupInfo.store.individual.register.phone = userStorage.phone;
+//            this.signupInfo.store.individual.register.email = userStorage.email;
+        }
+//    }
 	
 	save() {
 		console.log(this.signupInfo.store.company.register.companyPrefix);
@@ -227,13 +260,128 @@ class UserController{
 
     updateAddressDocumentDropValues() {
         if(this.signupInfo.address.isDocumentDropSamePickup){
+            this.zipCodes.documentDrop = this.zipCodes.pickup;
+            this.provinces.documentDrop = this.provinces.pickup;
+            this.amphurs.documentDrop = this.amphurs.pickup;
+            this.districts.documentDrop = this.districts.pickup;
+
             $.each(this.signupInfo.address.documentDrop, (field, value) => {
                 this.signupInfo.address.documentDrop[field] = this.signupInfo.address.pickup[field];
             });
         }
     }
     
+    getProvinces(addressType) {
+        this.zipCodes[addressType] = [];
+        this.provinces[addressType] = [];
+        this.amphurs[addressType] = [];
+        this.districts[addressType] = [];
+
+        //this.uniqueProvinces[addressType] = [];
+
+        this._userService.getZipCodes(this.signupInfo.address[addressType].zipCode)
+            .then(
+                (data) => {
+                    this.zipCodes[addressType] = data;
+                    this.zipCodes[addressType].forEach((item) => {
+                        this._userService.getProvince(item.provinceId)
+                            .then(
+                                (data) => {
+                                    this.provinces[addressType].push(data);
+
+//                                    if(this.provinces[addressType].length == this.zipCodes[addressType].length){
+//                                        this.uniqueProvinces[addressType] = this._$filter('unique')(this.provinces[addressType], 'id');
+//                                        if(this.uniqueProvinces[addressType].length == 1){
+//                                            //console.log();
+//
+//                                            this._$timeout(() => {
+//                                                this.signupInfo.address.pickup.province = this.uniqueProvinces[addressType][0].id;
+//                                            }, 500);
+//
+//                                            //this.getAmphurs(addressType);
+//                                        }
+//
+////                                        let uniqueProvinces = this._$filter('unique')(this.provinces[addressType], 'id');
+////                                        if(uniqueProvinces.length == 1){
+////                                            this.signupInfo.address.pickup.province = this.provinces[addressType][0].id;
+////                                            this.getAmphurs(addressType);
+////                                        }
+//                                    }
+                                },
+                                (error) => {
+                                    alert(error.message);
+                                }
+                            );
+                    });
+
+//                    this.uniqueProvinces[addressType] = this._$filter('unique')(this.provinces[addressType], 'id');
+//                    if(this.uniqueProvinces[addressType].length == 1){
+////                        this._$timeout(() => {
+////                            this.signupInfo.address.pickup.province = this.uniqueProvinces[addressType][0].id;
+////                        }, 500);
+//                        this.signupInfo.address.pickup.province = this.uniqueProvinces[addressType][0].id;
+//                        //this.getAmphurs(addressType);
+//                    }
+                },
+                (error) => {
+                    alert(error.message);
+                }
+            );
+    }
+
+    getAmphurs(addressType) {
+        this.amphurs[addressType] = [];
+        this.districts[addressType] = [];
+
+        this.zipCodes[addressType]
+            .filter((item) =>{
+                return item.provinceId == this.signupInfo.address[addressType].province;
+            })
+            .forEach((item) => {
+                this._userService.getAmphur(item.amphurId)
+                    .then(
+                        (data) => {
+                            this.amphurs[addressType].push(data);
+                        },
+                        (error) => {
+                            alert(error.message);
+                        }
+                    );
+            });
+
+        if(this.amphurs[addressType].length == 1){
+            this.signupInfo.address.pickup.amphur = this.amphurs[addressType][0].id;
+            this.getDistricts(addressType);
+        }
+    }
     
+    getDistricts(addressType) {
+        this.districts[addressType] = [];
+
+        this.zipCodes[addressType]
+            .filter((item) => {
+                let result =
+                    (item.provinceId == this.signupInfo.address[addressType].province) &&
+                    (item.amphurId == this.signupInfo.address[addressType].amphur);
+
+                return result;
+            })
+            .forEach((item) => {
+                this._userService.getDistrict(item.districtId)
+                    .then(
+                        (data) => {
+                            this.districts[addressType].push(data);
+                        },
+                        (error) => {
+                            alert(error.message);
+                        }
+                    );
+            });
+
+        if(this.districts[addressType].length == 1){
+            this.signupInfo.address.pickup.district = this.districts[addressType][0].id;
+        }
+    }
 }
 
 angular.module('MainApp')

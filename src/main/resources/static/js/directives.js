@@ -458,7 +458,7 @@ function addressSwitchDocumentdropSamePickup() {
                 switchDocumentdropSamePickup();
             });
 
-            function switchDocumentdropSamePickup() {console.log("s");
+            function switchDocumentdropSamePickup() {
                 let inputs = $('#addressDocumentDropForm .form-control')
                 let isDocumentdropSamePickup = scope.user.signupInfo.address.isDocumentDropSamePickup;
                 if(isDocumentdropSamePickup) {
