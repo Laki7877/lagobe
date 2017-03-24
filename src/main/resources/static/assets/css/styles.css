@@ -643,31 +643,36 @@ footer {
 footer .footer-item {
   margin: 10px 0;
 }
-footer .footer-item h3 {
+footer .footer-item .footer-details {
+  text-align: left;
+  display: inline-block;
+  width: 210px;
+}
+footer .footer-item .footer-details h3 {
   margin-top: 10px;
   line-height: 28px;
 }
-footer .footer-item h4 {
+footer .footer-item .footer-details h4 {
   line-height: 28px;
 }
-footer .footer-item p {
+footer .footer-item .footer-details p {
   font-size: 12pt;
   margin-bottom: 6px;
 }
-footer .footer-item ul {
+footer .footer-item .footer-details ul {
   margin: 0px 0px 0px 3px;
   padding: 0px;
   list-style-type: none;
 }
-footer .footer-item ul li a {
+footer .footer-item .footer-details ul li a {
   font-size: 12pt;
   line-height: 24px;
 }
-footer .footer-item .contactus-field {
+footer .footer-item .footer-details .contactus-field {
   display: inline-block;
   width: 58px;
 }
-footer .footer-item .qr-code {
+footer .footer-item .footer-details .qr-code {
   margin-top: 20px;
 }
 section {
@@ -920,6 +925,11 @@ form textarea.form-control {
 }
 .modal-contract .modal-dialog .modal-content {
   height: inherit;
+}
+.notify-error {
+  color: red;
+  text-align: center;
+  height: 20px;
 }
 @-webkit-keyframes bouncedelay {
   0%,
@@ -1238,18 +1248,18 @@ section#support .media:hover h3 {
 footer {
   background-color: dimgray;
 }
-footer .footer-item h3 {
+footer .footer-item .footer-details h3 {
   color: #000080;
 }
-footer .footer-item h4,
-footer .footer-item p {
+footer .footer-item .footer-details h4,
+footer .footer-item .footer-details p {
   color: #ffffff;
 }
-footer .footer-item ul li a {
+footer .footer-item .footer-details ul li a {
   color: #ffffff;
 }
-footer .footer-item ul li a:focus,
-footer .footer-item ul li a:hover {
+footer .footer-item .footer-details ul li a:focus,
+footer .footer-item .footer-details ul li a:hover {
   color: #000080;
   text-decoration: none;
 }

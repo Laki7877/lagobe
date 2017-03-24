@@ -20,13 +20,17 @@ signup-page {
   /* Extra space in Cross Axis */
 }
 signup-page header {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-color: #000080;
 }
 signup-page header .logo {
   width: 180px;
+  height: auto;
   margin-left: 20px;
+}
+signup-page header .navbar-toggle {
+  margin-left: 15px;
 }
 signup-page .wrapper {
   flex: 1;
@@ -45,6 +49,10 @@ signup-page .wrapper .left-side {
 }
 signup-page .wrapper .right-side {
   background-color: white;
+}
+signup-page .wrapper .navbar-collapse {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 signup-page .wrapper ul.step-tabs {
   list-style-type: none;
@@ -82,6 +90,22 @@ signup-page .wrapper .btn-save {
 signup-page .wrapper .btn-cancel {
   margin: 15px 0px 15px 8px;
   width: 50%;
+}
+@media screen and (max-width: 767px) {
+  signup-page header .logo {
+    margin-left: -15px;
+  }
+  signup-page header .navbar-toggle {
+    margin-left: 15px;
+  }
+  signup-page .wrapper .left-side {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  signup-page .wrapper ul.step-tabs {
+    width: 200px;
+    margin: 0px;
+  }
 }
 @media screen and (min-width: 768px) {
   signup-page .wrapper ul.step-tabs > li > a.step-tab {

@@ -14,6 +14,9 @@
     "view-contract": "View Seller Contract Here",
     "signupsuccess": "Thank You",
     "signupfail": "Cannot register, please contact admin",
+    "notify-error": {
+        "signin": "Username or password incorrect"
+    },
     "main": {
         "why": {
             "heading": "WHY LAGOBE",

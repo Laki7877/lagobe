@@ -11,7 +11,7 @@ class ParentController {
 		this.label = {};
 	}
 	
-	loadLabel(page,language){
+	loadLabel(page,language) {
 		this._mainService.getLabel(page, language)
 		    .then(
 		        (data) => {
@@ -34,7 +34,6 @@ class ParentController {
         }
         this.loadLabel(page, languageNew);
     }
-
 }
 
 class MainController extends ParentController {
@@ -50,6 +49,9 @@ class MainController extends ParentController {
 
 		this.loadLabel('landingpage');
 		this.form = {};
+        this.notifyError = {
+            signin: false
+        };
 	}
 
 	viewContract() {
@@ -69,9 +71,9 @@ class MainController extends ParentController {
                 	this._$location.path( '/signup');
                 },
                 (error) => {
-                    //this.error.signin = true;
+                    this.notifyError.signin = true;
                     this.user.password = "";
-                    alert(error.message);
+                    //alert(error.message);
                 }
             );
     }
@@ -91,11 +93,13 @@ class MainController extends ParentController {
     		);
 	}
 
-	
+	clearNotifyError() {
+        this.notifyError.signin = false;
+    }
 }
 
 class UserController{
-	constructor($scope, $window, $location, $uibModal, $filter, $timeout, userService) {
+	constructor($scope, $window, $location, $filter, $timeout, userService) {
 		"ngInject";
 		
         this._$scope = $scope;
@@ -416,6 +420,11 @@ class UserController{
         if(this.districts[addressType].length == 1){
             this.signupInfo.address.pickup.district = this.districts[addressType][0].id;
         }
+    }
+
+    signout() {
+        delete this._$window.localStorage.user;
+        this._$location.path( '/');
     }
 }
 

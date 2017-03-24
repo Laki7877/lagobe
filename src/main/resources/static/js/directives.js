@@ -421,6 +421,19 @@ function signOnBehalfOf() {
     };
 }
 
+function storeUploadDocument() {
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            elem.bind('change', function() {
+                var files = event.target.files;
+                scope.user.file[attrs.businessType][attrs.documentName] = files[0];
+                scope.user.uploadStoreDocument(attrs.businessType, attrs.documentName);
+            });
+        }
+    };
+}
+
 function storeIndividualSwitchContactSameRegister() {
     return {
         restrict: 'A',
@@ -529,5 +542,6 @@ angular.module('User')
 .directive('signupPage', signupPage)
 .directive('stepTab', stepTab)
 .directive('signOnBehalfOf', signOnBehalfOf)
+.directive('storeUploadDocument', storeUploadDocument)
 .directive('storeIndividualSwitchContactSameRegister', storeIndividualSwitchContactSameRegister)
 .directive('addressSwitchDocumentdropSamePickup', addressSwitchDocumentdropSamePickup);
