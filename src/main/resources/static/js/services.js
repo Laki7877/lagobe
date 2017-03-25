@@ -78,12 +78,12 @@ function mainService(PAGE, CONFIG, $q, $window, $http){
     
 }
 
-function userService(CONFIG, $http,$q){
+function userService(CONFIG, $window, $http, $q){
     "ngInject";
     
     return {
-        signin,
         uploadFile,
+        save,
         getCompanies,
         getBanks,
         getZipCodes,
@@ -128,9 +128,26 @@ function userService(CONFIG, $http,$q){
     	return deferred.promise;
     }
 
+    function save(userInfo) {
+        let deferred = $q.defer();
+        let userStorage = JSON.parse($window.localStorage.user);
+        let userId = userStorage.userId;
+    	$http.post(`${CONFIG.PATH.APIS}/user/${userId}`, userInfo)
+            .then(
+    			(respond) => {
+		    		deferred.resolve(respond.data);
+    			},
+    			(reason) => {
+    				deferred.reject(reason.data);
+    			}
+    		);
+    	return deferred.promise;
+    }
+
     function getBanks() {
     	let deferred = $q.defer();
-    	$http.get(`${CONFIG.PATH.APIS}/staticdata/banks`).then(
+    	$http.get(`${CONFIG.PATH.APIS}/staticdata/banks`)
+            .then(
     			(respond) => {
 		    		deferred.resolve(respond.data);
     			},
@@ -143,7 +160,8 @@ function userService(CONFIG, $http,$q){
     
     function getCompanies() {
     	let deferred = $q.defer();
-    	$http.get(`${CONFIG.PATH.APIS}/staticdata/companies`).then(
+    	$http.get(`${CONFIG.PATH.APIS}/staticdata/companies`)
+            .then(
     			(respond) => {
 		    		deferred.resolve(respond.data);
     			},
@@ -156,7 +174,8 @@ function userService(CONFIG, $http,$q){
     
     function getZipCodes(zipCode) {
         let deferred = $q.defer();
-    	$http.get(`${CONFIG.PATH.APIS}/staticdata/zipcodes?search=${zipCode}`).then(
+    	$http.get(`${CONFIG.PATH.APIS}/staticdata/zipcodes?search=${zipCode}`)
+            .then(
     			(respond) => {
                     let zipCodeInfo = respond.data;
 		    		deferred.resolve(zipCodeInfo.content);
@@ -186,7 +205,8 @@ function userService(CONFIG, $http,$q){
 //            }
 //        });
 
-    	$http.get(`${CONFIG.PATH.APIS}/staticdata/province/${provinceId}`).then(
+    	$http.get(`${CONFIG.PATH.APIS}/staticdata/province/${provinceId}`)
+            .then(
     			(respond) => {
                     let provinceInfo = respond.data;
 		    		deferred.resolve({
@@ -203,7 +223,8 @@ function userService(CONFIG, $http,$q){
 
     function getAmphur(amphurId) {
         let deferred = $q.defer();
-    	$http.get(`${CONFIG.PATH.APIS}/staticdata/amphur/${amphurId}`).then(
+    	$http.get(`${CONFIG.PATH.APIS}/staticdata/amphur/${amphurId}`)
+            .then(
     			(respond) => {
                     let amphurInfo = respond.data;
 		    		deferred.resolve({
@@ -221,7 +242,8 @@ function userService(CONFIG, $http,$q){
 
     function getDistrict(districtId) {
         let deferred = $q.defer();
-    	$http.get(`${CONFIG.PATH.APIS}/staticdata/district/${districtId}`).then(
+    	$http.get(`${CONFIG.PATH.APIS}/staticdata/district/${districtId}`)
+            .then(
     			(respond) => {
                     let districtInfo = respond.data;
 		    		deferred.resolve({
@@ -235,10 +257,6 @@ function userService(CONFIG, $http,$q){
     			}
     		);
     	return deferred.promise;
-    }
-
-    function signin(username, password){
-        alert(username+" "+password);
     }
 }
 

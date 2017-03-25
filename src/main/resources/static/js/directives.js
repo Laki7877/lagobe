@@ -373,6 +373,39 @@ function reviewsCarousel($timeout) {
     };
 }
 
+function notifySaved($timeout) {
+    "ngInject";
+
+    return {
+        restrict: 'E',
+        template: 'บันทึกเรียบร้อย',
+        link: function (scope, elem, attrs) {
+            elem.css({
+                display: "none",
+                opacity: 0
+            });
+
+            $(elem).on('show', function() {
+                elem.css({
+                    display: 'block',
+                    opacity: 1
+                });
+
+                $timeout(function() {
+                    $(elem).animate({
+                        opacity: 0
+                    }, {
+                        duration: 1800,
+                        complete: function() {
+                            elem.css('display', 'none');
+                        }
+                    });
+                }, 600);
+            });
+        }
+    };
+}
+
 angular.module('MainApp')
 .directive('mainPage', mainPage)
 .directive('embedPdf', embedPdf)
@@ -380,7 +413,8 @@ angular.module('MainApp')
 .directive('registerMenu', registerMenu)
 .directive('registerTab', registerTab)
 .directive('numCountSpeed', numCountSpeed)
-.directive('reviewsCarousel', reviewsCarousel);
+.directive('reviewsCarousel', reviewsCarousel)
+.directive('notifySaved', notifySaved);
 
 
 

@@ -226,15 +226,9 @@ class UserController{
                 }
             }
         };
+        this.signupInfoLastModified = JSON.parse(JSON.stringify(this.signupInfo));
         
         this.init();
-
-//        $uibModal.open({
-//            template: '<img src="/assets/img/freeze/Lagobe_Welcome_SC.jpg" class="img-responsive" alt="">',
-//			//size: 'lg',
-//			backdrop: true,
-//			//windowTopClass: 'modal-contract'
-//        });
 	}
 
     init() {
@@ -270,8 +264,24 @@ class UserController{
     }
 	
 	save() {
-		console.log(this.signupInfo.store.company.register.companyPrefix);
+
+
+        this._userService.save(this.signupInfo)
+            .then(
+                (data) => {
+                    this.signupInfoLastModified = JSON.parse(JSON.stringify(this.signupInfo));
+
+                    $('#notifySaved').trigger('show');
+                },
+                (error) => {
+                    alert(error.message);
+                }
+            );
 	}
+
+    cancel() {
+        this.signupInfo = JSON.parse(JSON.stringify(this.signupInfoLastModified));
+    }
 
     updateStoreIndividualContactValues() {
         if(this.signupInfo.store.individual.isContactSameRegister){

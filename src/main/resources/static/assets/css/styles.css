@@ -931,6 +931,19 @@ form textarea.form-control {
   text-align: center;
   height: 20px;
 }
+notify-saved {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -125px;
+  margin-top: -30px;
+  width: 250px;
+  line-height: 60px;
+  font-size: 20pt;
+  text-align: center;
+  color: white;
+  border-radius: 30px;
+}
 @-webkit-keyframes bouncedelay {
   0%,
   80%,
@@ -1313,6 +1326,9 @@ form .form-control {
 form .form-control:focus {
   border-color: #000080;
   color: #999999;
+}
+notify-saved {
+  background-color: #000080;
 }
 @media screen and (max-width: 640px) {
   header .navbar-default .navbar-toggle {

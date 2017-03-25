@@ -20,9 +20,6 @@
             </div>
         </div>
         <div class="col-md-9 col-sm-9 col-xs-12 right-side">
-            <div class="alert alert-success">
-                บันทึกเรียบร้อย
-            </div>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="step0">
                     <div align="center"><img src="/assets/img/freeze/Lagobe_Welcome_SC.jpg" class="img-responsive" style="min-width: 320px;" alt=""></div>
@@ -238,7 +235,7 @@
                             <div class="col-md-5 col-md-push-1">
                                 <div align="center" style="display: flex;">
                                     <button class="btn btn-lg btn-primary btn-save" ng-click="user.save()">บันทึก</button>
-                                    <button class="btn btn-lg btn-primary btn-cancel">ยกเลิก</button>
+                                    <button class="btn btn-lg btn-primary btn-cancel" ng-click="user.cancel()">ยกเลิก</button>
                                 </div>
                             </div>
                         </div>
@@ -280,8 +277,8 @@
                         <div class = "row">
                             <div class="col-md-5 col-md-push-1">
                                 <div align="center" style="display: flex;">
-                                    <button class="btn btn-lg btn-primary btn-save">บันทึก</button>
-                                    <button class="btn btn-lg btn-primary btn-cancel">ยกเลิก</button>
+                                    <button class="btn btn-lg btn-primary btn-save" ng-click="user.save()">บันทึก</button>
+                                    <button class="btn btn-lg btn-primary btn-cancel" ng-click="user.cancel()">ยกเลิก</button>
                                 </div>
                             </div>
                         </div>
@@ -315,7 +312,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">แขวง / ตำบล</label>
-                                        <select ng-model="user.signupInfo.address.pickup.tumbon" name="pickupTumbon" class="form-control" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateAddressDocumentDropValues();">
+                                        <select ng-model="user.signupInfo.address.pickup.district" name="pickupTumbon" class="form-control" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateAddressDocumentDropValues();">
                                             <option value="">เลือกแขวง / ตำบล</option>
                                             <option ng-repeat="district in user.districts.pickup | unique: 'id'" value="{{district.id}}">{{district.name}}</option>
                                         </select>
@@ -354,7 +351,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">แขวง / ตำบล</label>
-                                        <select ng-model="user.signupInfo.address.documentDrop.tumbon" name="documentDropTumbon" class="form-control">
+                                        <select ng-model="user.signupInfo.address.documentDrop.district" name="documentDropTumbon" class="form-control">
                                             <option value="">เลือกแขวง / ตำบล</option>
                                             <option ng-repeat="district in user.districts.documentDrop | unique: 'id'" value="{{district.id}}">{{district.name}}</option>
                                         </select>
@@ -370,8 +367,8 @@
                         <div class = "row">
                             <div class="col-md-5 col-md-push-1">
                                 <div align="center" style="display: flex;">
-                                    <button class="btn btn-lg btn-primary btn-save">บันทึก</button>
-                                    <button class="btn btn-lg btn-primary btn-cancel">ยกเลิก</button>
+                                    <button class="btn btn-lg btn-primary btn-save" ng-click="user.save()">บันทึก</button>
+                                    <button class="btn btn-lg btn-primary btn-cancel" ng-click="user.cancel()">ยกเลิก</button>
                                 </div>
                             </div>
                         </div>
@@ -437,4 +434,5 @@
             </div>
         </div>
     </div>
+    <notify-saved id="notifySaved"></notify-saved>
 </signup-page>
